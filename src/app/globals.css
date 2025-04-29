@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Goth";
+  src: url("/fonts/gothBlack.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "GothBold";
+  src: url("/fonts/gothBold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "GothBody";
+  src:
+    url("/fonts/gothMed.woff") format("woff"),
+    url("/fonts/gothMed.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +36,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-black: #2d291f;
+  --color-offwhite: #f5f4ee;
+  --color-paprika: #b54e26;
+  --color-brick: #8f1402;
+  --color-pizzaria: #805336;
+  --color-pizzaria-dark: #66422b;
+  --color-wheat: #c09d4f;
+  --color-pangea: #a97858;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,10 +51,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
