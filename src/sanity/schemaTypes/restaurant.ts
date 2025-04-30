@@ -25,6 +25,15 @@ export const restaurant = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "mapImage",
+      title: "Map Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "address",
       title: "Address",
       type: "object",
