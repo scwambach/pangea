@@ -1,28 +1,12 @@
 import { defineField, defineType } from "sanity";
 import { richTextProps } from "./protableProps";
+import { IoRestaurantOutline } from "react-icons/io5";
 
 export const restaurant = defineType({
   name: "restaurant",
   title: "Restaurant",
   type: "document",
-  fieldsets: [
-    {
-      name: "details",
-      title: "Details",
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-    {
-      name: "listing",
-      title: "Listing",
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-  ],
+  icon: IoRestaurantOutline,
   fields: [
     defineField({
       name: "name",
@@ -63,12 +47,35 @@ export const restaurant = defineType({
       name: "hours",
       title: "Hours",
       type: "array",
-      of: [{ type: "string" }],
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "title",
+              title: "Title",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "days",
+              title: "Days",
+              type: "array",
+              validation: (Rule) => Rule.required(),
+              of: [{ type: "string" }],
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "orderOnlineLink",
+      title: "Order Online Link",
+      type: "url",
     }),
     defineField({
       name: "menus",
       title: "Menus",
-      fieldset: "details",
       type: "array",
       of: [
         {
@@ -93,14 +100,25 @@ export const restaurant = defineType({
     defineField({
       name: "flavorsFrom",
       title: "Flavors From",
-      fieldset: "listing",
       type: "array",
       of: [{ type: "string" }],
     }),
     defineField({
+      name: "socialLinks",
+      title: "Social Links",
+      type: "array",
+      of: [
+        defineField({
+          name: "url",
+          title: "URL",
+          type: "url",
+          validation: (Rule: any) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
       name: "imageGallery",
       title: "Image Gallery",
-      fieldset: "details",
       type: "array",
       of: [
         {
@@ -113,7 +131,6 @@ export const restaurant = defineType({
     }),
     defineField({
       name: "banner",
-      fieldset: "details",
       title: "Banner",
       type: "object",
       fields: [
@@ -130,6 +147,53 @@ export const restaurant = defineType({
           title: "Copy",
           type: "array",
           of: richTextProps(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "featuresBanner",
+      title: "Feature Banner",
+      type: "object",
+      fields: [
+        defineField({
+          name: "backgroundImage",
+          title: "Background Image",
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        }),
+        defineField({
+          name: "copy",
+          title: "Copy",
+          type: "array",
+          of: richTextProps(),
+        }),
+        defineField({
+          name: "buttons",
+          title: "Buttons",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                defineField({
+                  name: "text",
+                  title: "Text",
+                  type: "string",
+                }),
+                defineField({
+                  name: "href",
+                  title: "Href",
+                  type: "url",
+                  validation: (Rule: any) =>
+                    Rule.required().uri({
+                      allowRelative: true,
+                    }),
+                }),
+              ],
+            },
+          ],
         }),
       ],
     }),
