@@ -44,6 +44,7 @@
   --color-pizzaria-dark: #66422b;
   --color-wheat: #c09d4f;
   --color-pangea: #a97858;
+  --shadow-icon: 0 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -15,7 +15,7 @@ export const HOME = `{
     title,
     url,
   },
-  "restaurants": *[_type == "restaurant"] {
+  "restaurants": *[_type == "globalSettings"][0].locations[] -> {
     "slug": slug.current,
     _id,
     mapImage ${imageQuery},

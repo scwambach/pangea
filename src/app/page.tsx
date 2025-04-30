@@ -1,3 +1,4 @@
+import { RestaurantGrid } from "@/components/RestaurantGrid";
 import { HOME } from "@/queries/homepage";
 import { getLiveData } from "@/utils/pageData";
 import { HomePageProps } from "@/utils/types";
@@ -14,23 +15,19 @@ export default async function Home() {
     },
     usePreview: false,
   });
+
+  const gridData = data.restaurants.map((restaurant) => {
+    return {
+      name: restaurant.name,
+      slug: restaurant.slug,
+      flavorsFrom: restaurant.flavorsFrom,
+      orderOnlineLink: restaurant.orderOnlineLink,
+    };
+  });
+
   return (
     <div>
-      <code>
-        <pre
-          style={{
-            fontFamily: "monospace",
-            display: "block",
-            padding: "50px",
-            color: "#88ffbf",
-            backgroundColor: "black",
-            textAlign: "left",
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {JSON.stringify(data.ctaBanner.copy[0].markDefs, null, "    ")}
-        </pre>
-      </code>
+      <RestaurantGrid items={gridData} />
     </div>
   );
 }

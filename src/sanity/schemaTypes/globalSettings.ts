@@ -30,6 +30,14 @@ export const globalSettings = defineType({
         collapsed: true,
       },
     },
+    {
+      name: "locationHeirarchy",
+      title: "Location Heirarchy",
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
     defineField({
@@ -79,6 +87,19 @@ export const globalSettings = defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: "locations",
+      title: "Locations",
+      fieldset: "locationHeirarchy",
+      validation: (Rule: any) => Rule.required(),
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "restaurant" }],
+        },
+      ],
     }),
     defineField({
       name: "ctaBanner",
