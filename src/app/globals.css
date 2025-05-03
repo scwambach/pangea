@@ -45,6 +45,18 @@
   --color-wheat: #c09d4f;
   --color-pangea: #a97858;
   --shadow-icon: 0 4px 4px 4px rgba(0, 0, 0, 0.15);
+
+  --breakpoint-mobile: 320px;
+  --breakpoint-mobile-md: 420px;
+  --breakpoint-mobile-lg: 480px;
+  --breakpoint-tablet: 640px;
+  --breakpoint-tablet-md: 768px;
+  --breakpoint-tablet-lg: 880px;
+  --breakpoint-tablet-xl: 992px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop-md: 1100px;
+  --breakpoint-desktop-lg: 1200px;
+  --breakpoint-widescreen: 1400px;
 }
 
 @media (prefers-color-scheme: dark) {

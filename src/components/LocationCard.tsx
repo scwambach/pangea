@@ -1,37 +1,63 @@
 import { bgTheme, logo, textTheme } from "@/utils/themes";
+import Link from "next/link";
 
-export const LocationCard = (props: {
+export const LocationCard = ({
+  name,
+  slug,
+  flavorsFrom,
+  orderOnlineLink,
+}: {
   name: string;
   slug: string;
   flavorsFrom: string[];
-  orderOnlineLink: string;
+  orderOnlineLink?: string;
 }) => {
   return (
     <div
-      key={props.slug}
-      className="text-center bg-offwhite relative top-[72.5px] mb-[60px]"
+      key={slug}
+      className="text-center bg-offwhite relative top-[72.5px] mb-[60px] max-w-[300px] sm:max-w-none mx-auto w-full"
     >
       <div
-        className={`${bgTheme(props.slug)} pb-7 px-7 min-h-[145px] flex flex-col justify-between`}
+        className={`${bgTheme(slug)} pb-7 px-7 min-h-[145px] flex flex-col justify-between`}
       >
         <div className="flex justify-center items-center relative h-[120px] w-[120px] bg-white rounded-full mx-auto shadow-icon -mb-[60px] -top-[60px]">
           {logo({
-            slug: props.slug,
+            slug: slug,
             className: "h-[87px] mx-auto w-auto",
           })}
         </div>
         <p className="text-xl font-black tracking-wider text-white uppercase">
-          {props.name}
+          {name}
         </p>
       </div>
-      {props.flavorsFrom && (
-        <div className="p-[30px]">
-          <p className={`${textTheme(props.slug)} uppercase font-bold`}>
-            Flavors from:
-          </p>
-          <p>{props.flavorsFrom}</p>
+      <div className="p-[30px] flex flex-col gap-10">
+        {flavorsFrom && (
+          <div>
+            <p className={`${textTheme(slug)} uppercase font-bold`}>
+              Flavors from:
+            </p>
+            <p className="text-pretty">{flavorsFrom}</p>
+          </div>
+        )}
+        <div className="flex flex-col gap-2">
+          <Link
+            href={`${slug}#menu`}
+            className={`${bgTheme(slug)} block text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out`}
+          >
+            View the Menu
+          </Link>
+          {orderOnlineLink && (
+            <Link
+              href={orderOnlineLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${bgTheme(slug)} block text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out`}
+            >
+              Order online
+            </Link>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
