@@ -7,6 +7,7 @@ import { GlobalProps } from "@/utils/types";
 
 const montSans = Montserrat({
   variable: "--font-geist-sans",
+  weight: ["400", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -35,7 +36,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${montSans.variable} antialiased`}>{children}</body>
+      <body className={`${montSans.variable} antialiased leading-[1.3]`}>
+        {children}
+      </body>
     </html>
   );
 }

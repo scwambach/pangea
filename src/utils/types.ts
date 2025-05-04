@@ -39,6 +39,14 @@ export interface MapSelectorItemProps {
   mapImage: ImageProps;
 }
 
+export interface TasteMakerItemProps {
+  _id: string;
+  description: any[];
+  image: ImageProps;
+  title: string;
+  url: string;
+}
+
 export interface HomePageProps {
   ctaBanner: {
     image: ImageProps;
@@ -49,13 +57,7 @@ export interface HomePageProps {
       href: string;
     }[];
   };
-  tasteMakers: {
-    _id: string;
-    description: any[];
-    image: ImageProps;
-    title: string;
-    url: string;
-  }[];
+  tasteMakers: TasteMakerItemProps[];
   mapSelector: MapSelectorItemProps[];
   restaurantGrid: {
     name: string;
