@@ -15,13 +15,20 @@ export const HOME = `{
     title,
     url,
   },
-  "restaurants": *[_type == "globalSettings"][0].locations[] -> {
-    "slug": slug.current,
+  "mapSelector": *[_type == "globalSettings"][0].locations[] -> {
     _id,
-    mapImage ${imageQuery},
     name,
+    "slug": slug.current,
+    mapImage ${imageQuery},
+  },
+  "restaurantGrid": *[_type == "globalSettings"][0].locations[] -> {
+    _id,
+    name,
+    "slug": slug.current,
     flavorsFrom,
-    orderOnlineLink,
+    orderOnlineLink
+  },
+  "gallery": *[_type == "globalSettings"][0].locations[] -> {
     "image": imageGallery[0] ${imageQuery},
-  }
+  },
 }`;

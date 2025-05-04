@@ -32,6 +32,13 @@ export interface GlobalProps {
   ogImage: ImageProps;
 }
 
+export interface MapSelectorItemProps {
+  _id: string;
+  slug: string;
+  name: string;
+  mapImage: ImageProps;
+}
+
 export interface HomePageProps {
   ctaBanner: {
     image: ImageProps;
@@ -49,13 +56,14 @@ export interface HomePageProps {
     title: string;
     url: string;
   }[];
-  restaurants: {
-    _id: string;
-    flavorsFrom: any[];
-    image: ImageProps;
-    mapImage: ImageProps;
+  mapSelector: MapSelectorItemProps[];
+  restaurantGrid: {
     name: string;
+    flavorsFrom: any[];
     orderOnlineLink: string;
     slug: string;
+  }[];
+  gallery: {
+    image: ImageProps;
   }[];
 }

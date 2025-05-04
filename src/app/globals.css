@@ -26,6 +26,14 @@
   font-display: block;
 }
 
+body {
+  &::selection {
+    background-color: var(--color-pangea-dark);
+    color: var(--color-offwhite);
+    text-shadow: 1px 1px 0 black;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -42,8 +50,10 @@
   --color-brick: #8f1402;
   --color-pizzaria: #805336;
   --color-pizzaria-dark: #66422b;
+  --color-tan: #cdc2af;
   --color-wheat: #c09d4f;
   --color-pangea: #a97858;
+  --color-pangea-dark: #8b6c4e;
   --shadow-icon: 0 4px 4px 4px rgba(0, 0, 0, 0.15);
 
   --breakpoint-mobile: 320px;
@@ -63,5 +73,18 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+.mapSelector {
+  a {
+    &:hover {
+      span {
+        text-decoration: underline;
+        text-decoration-thickness: 7px;
+        text-underline-offset: 10px;
+        text-decoration-color: var(--color-pangea);
+      }
+    }
   }
 }

@@ -15,7 +15,7 @@ export const LocationCard = ({
   return (
     <div
       key={slug}
-      className="text-center bg-offwhite relative top-[72.5px] mb-[60px] max-w-[300px] sm:max-w-none mx-auto w-full"
+      className="text-center bg-offwhite relative top-[72.5px] mb-[60px] max-w-[300px] sm:max-w-none mx-auto w-full flex flex-col"
     >
       <div
         className={`${bgTheme(slug)} pb-7 px-7 min-h-[145px] flex flex-col justify-between`}
@@ -30,16 +30,17 @@ export const LocationCard = ({
           {name}
         </p>
       </div>
-      <div className="p-[30px] flex flex-col gap-10">
+      <div className="py-[30px] flex flex-col h-full justify-between gap-10">
         {flavorsFrom && (
-          <div>
+          <div className="px-[16px]">
             <p className={`${textTheme(slug)} uppercase font-bold`}>
               Flavors from:
             </p>
-            <p className="text-pretty">{flavorsFrom}</p>
+            <p className="text-pretty">{flavorsFrom.join(", ")}</p>
           </div>
         )}
-        <div className="flex flex-col gap-2">
+
+        <div className="flex flex-col gap-2 px-[30px]">
           <Link
             href={`${slug}#menu`}
             className={`${bgTheme(slug)} block text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out`}

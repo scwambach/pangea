@@ -1,3 +1,4 @@
+import { MapSelector } from "@/components/MapSelector";
 import { RestaurantGrid } from "@/components/RestaurantGrid";
 import { HOME } from "@/queries/homepage";
 import { getLiveData } from "@/utils/pageData";
@@ -16,18 +17,10 @@ export default async function Home() {
     usePreview: false,
   });
 
-  const gridData = data.restaurants.map((restaurant) => {
-    return {
-      name: restaurant.name,
-      slug: restaurant.slug,
-      flavorsFrom: restaurant.flavorsFrom,
-      orderOnlineLink: restaurant.orderOnlineLink,
-    };
-  });
-
   return (
     <div>
-      <RestaurantGrid items={gridData} />
+      <MapSelector items={data.mapSelector} />
+      <RestaurantGrid items={data.restaurantGrid} />
     </div>
   );
 }
