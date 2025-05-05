@@ -116,6 +116,12 @@ export const globalSettings = defineType({
           },
         }),
         defineField({
+          name: "heading",
+          title: "Heading",
+          type: "string",
+          validation: (Rule: any) => Rule.required(),
+        }),
+        defineField({
           name: "copy",
           title: "Copy",
           type: "array",
