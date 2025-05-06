@@ -78,6 +78,7 @@ body {
 
 .mapSelector {
   a {
+    &.active,
     &:hover {
       span {
         text-decoration: underline;

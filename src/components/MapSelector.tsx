@@ -24,7 +24,7 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
                 key={item._id}
                 href={`/${item.slug}`}
                 onMouseOver={() => setActiveLocation(item)}
-                className="flex items-center font-extrabold tracking-wide uppercase text-lg cursor-pointer relative z-10 justify-start gap-4 border-b-[1px] pb-8 border-tan"
+                className={`flex items-center font-extrabold tracking-wide uppercase text-lg cursor-pointer relative z-10 justify-start gap-4 border-b-[1px] pb-8 border-tan${activeLocation.slug === item.slug ? " active" : ""}`}
               >
                 {logo({
                   slug: item.slug,
