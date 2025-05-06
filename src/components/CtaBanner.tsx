@@ -84,6 +84,7 @@ export const CtaBanner = ({
               key={button._key}
               href={button.href}
               text={button.text}
+              className="text-[12px] tablet-md:text-[16px] px-8"
             />
           ))}
         </div>

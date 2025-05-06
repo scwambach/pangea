@@ -45,6 +45,7 @@ export const LocationCard = ({
             href={`${slug}#menu`}
             color={bgTheme(slug)}
             text="View the Menu"
+            className="px-4"
           />
 
           {orderOnlineLink && (
@@ -52,6 +53,7 @@ export const LocationCard = ({
               href={orderOnlineLink}
               color={bgTheme(slug)}
               text="Order online"
+              className="px-4"
             />
           )}
         </div>

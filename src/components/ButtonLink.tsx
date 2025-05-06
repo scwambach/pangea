@@ -1,3 +1,4 @@
+import { buttonClasses } from "@/utils/buttonClasses";
 import Link from "next/link";
 
 export const ButtonLink = ({
@@ -24,7 +25,7 @@ export const ButtonLink = ({
       href={href}
       target={isExternalLink ? "_blank" : undefined}
       rel={isExternalLink ? "noopener noreferrer" : undefined}
-      className={`${color} inline-block text-center text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out px-2 tablet-md:px-8 text-[12px] tablet-md:text-[16px]${className ? ` ${className}` : ""}`}
+      className={`${color} ${buttonClasses}${className ? ` ${className}` : ""}`}
     >
       {text}
     </Link>

@@ -41,7 +41,7 @@ export const TasteMakers = ({ items }: { items: TasteMakerItemProps[] }) => {
               <ButtonLink
                 href={item.url}
                 text="Explore"
-                className="max-w-[220px] mx-auto"
+                className="max-w-[220px] mx-auto px-8"
               />
             </div>
           ))}

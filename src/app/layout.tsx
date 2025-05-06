@@ -4,6 +4,7 @@ import "./globals.css";
 import { getLiveData } from "@/utils/pageData";
 import { GLOBAL } from "@/queries/global";
 import { GlobalProps } from "@/utils/types";
+import { Header } from "@/components/Header";
 
 const montSans = Montserrat({
   variable: "--font-geist-sans",
@@ -22,7 +23,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     data,
   }: {
     data: GlobalProps;
@@ -34,9 +34,17 @@ export default async function RootLayout({
     usePreview: false,
   });
 
+  const navigation = data?.locations.map((location) => ({
+    _key: location._id,
+    text: location.name,
+    href: location.slug,
+  }));
+
   return (
     <html lang="en">
       <body className={`${montSans.variable} antialiased leading-[1.3]`}>
+        <Header items={navigation} tagline={data.siteTagline} />
+
         <main>{children}</main>
       </body>
     </html>

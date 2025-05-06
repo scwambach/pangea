@@ -88,4 +88,60 @@ body {
       }
     }
   }
+
+  .mapNav {
+    @media only screen and (min-width: 768px) {
+      background: linear-gradient(
+        90deg,
+        var(--color-black) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
+}
+
+header {
+  position: relative;
+
+  nav {
+    user-select: none;
+    pointer-events: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, #000 75%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: none;
+
+      @media only screen and (min-width: 768px) {
+        background: linear-gradient(180deg, #000 20%, rgba(0, 0, 0, 0) 100%);
+      }
+    }
+
+    .closeButton {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &.open {
+      user-select: auto;
+      pointer-events: auto;
+
+      @media only screen and (max-width: 767px) {
+        padding: 5rem 48px 2rem;
+      }
+
+      .closeButton {
+        opacity: 1;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
 }

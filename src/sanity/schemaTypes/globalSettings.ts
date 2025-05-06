@@ -89,6 +89,13 @@ export const globalSettings = defineType({
       },
     }),
     defineField({
+      name: "siteTagline",
+      title: "Site Tagline",
+      fieldset: "global",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "locations",
       title: "Locations",
       fieldset: "locationHeirarchy",

@@ -3,6 +3,7 @@ import { ImageProps } from "next/image";
 export interface GlobalProps {
   locations: {
     _id: string;
+    slug: string;
     hours: {
       _key: string;
       title: string;
@@ -15,6 +16,7 @@ export interface GlobalProps {
     name: string;
     socialLinks: string[];
   }[];
+  siteTagline: string;
   mainPhone: string;
   siteLogo: ImageProps;
   siteName: string;
