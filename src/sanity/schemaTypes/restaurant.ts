@@ -129,6 +129,7 @@ export const restaurant = defineType({
       name: "imageGallery",
       title: "Image Gallery",
       type: "array",
+      validation: (Rule: any) => Rule.required().min(4).max(4),
       of: [
         {
           type: "image",

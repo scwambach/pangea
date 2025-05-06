@@ -1,5 +1,5 @@
 import { bgTheme, logo, textTheme } from "@/utils/themes";
-import Link from "next/link";
+import { ButtonLink } from "./ButtonLink";
 
 export const LocationCard = ({
   name,
@@ -41,21 +41,18 @@ export const LocationCard = ({
         )}
 
         <div className="flex flex-col gap-2 px-[30px]">
-          <Link
+          <ButtonLink
             href={`${slug}#menu`}
-            className={`${bgTheme(slug)} block text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out`}
-          >
-            View the Menu
-          </Link>
+            color={bgTheme(slug)}
+            text="View the Menu"
+          />
+
           {orderOnlineLink && (
-            <Link
+            <ButtonLink
               href={orderOnlineLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${bgTheme(slug)} block text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out`}
-            >
-              Order online
-            </Link>
+              color={bgTheme(slug)}
+              text="Order online"
+            />
           )}
         </div>
       </div>

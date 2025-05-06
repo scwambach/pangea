@@ -1,4 +1,5 @@
 import { CtaBanner } from "@/components/CtaBanner";
+import { ImageGrid } from "@/components/ImageGrid";
 import { MapSelector } from "@/components/MapSelector";
 import { RestaurantGrid } from "@/components/RestaurantGrid";
 import { TasteMakers } from "@/components/TasteMakers";
@@ -25,6 +26,7 @@ export default async function Home() {
       <RestaurantGrid items={data.restaurantGrid} />
       <TasteMakers items={data.tasteMakers} />
       <CtaBanner {...data.ctaBanner} />
+      <ImageGrid items={data.gallery} />
     </>
   );
 }

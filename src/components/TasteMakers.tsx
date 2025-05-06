@@ -1,7 +1,7 @@
 import tasteBg from "@/images/tasteBg.png";
 import { TasteMakerItemProps } from "@/utils/types";
 import Image from "next/image";
-import Link from "next/link";
+import { ButtonLink } from "./ButtonLink";
 export const TasteMakers = ({ items }: { items: TasteMakerItemProps[] }) => {
   return (
     <section className="relative px-8 py-[100px] text-center">
@@ -38,14 +38,11 @@ export const TasteMakers = ({ items }: { items: TasteMakerItemProps[] }) => {
               <p className="text-lg text-pretty leading-[1.3]">
                 {item.description}
               </p>
-              <Link
+              <ButtonLink
                 href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-paprika block w-full text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out max-w-[220px] mx-auto"
-              >
-                Explore
-              </Link>
+                text="Explore"
+                className="max-w-[220px] mx-auto"
+              />
             </div>
           ))}
         </div>

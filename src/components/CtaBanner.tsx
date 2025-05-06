@@ -1,7 +1,7 @@
 import { CtaBannerProps } from "@/utils/types";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
-import Link from "next/link";
+import { ButtonLink } from "./ButtonLink";
 
 export const CtaBanner = ({
   image,
@@ -10,79 +10,81 @@ export const CtaBanner = ({
   buttons,
 }: CtaBannerProps) => {
   return (
-    <section className="px-8 py-[100px]">
+    <section className="px-2 tablet-md:px-8 py-[100px] flex flex-col gap-2">
       <h4 className="text-pangea text-center uppercase font-black tracking-widest text-[26px]">
         {heading}
       </h4>
-      <div className="flex max-w-[830px] mx-auto items-center gap-8 justify-center">
+      <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[830px] mx-auto items-center tablet-md:gap-8 justify-center">
         <Image
           src={image.src}
           width={image.width}
           height={image.height}
-          className="w-full max-w-[315px] h-auto"
+          className="w-full max-w-[250px] mobile-lg:max-w-[200px] tablet-md:max-w-[315px] h-auto"
           alt=""
         />
-        <div className="w-1/2 flex flex-col gap-8 items-start">
+        <div className="mobile-lg:w-1/2 px-8 mobile-lg:px-0 flex flex-col gap-4 tablet-md:gap-8 items-start">
           <PortableText
             value={copy}
             components={
               {
                 block: {
                   h1: ({ children }: { children: string }) => (
-                    <h1 className="text-pretty text-[45px] font-[900] leading-[1.2]">
+                    <h1 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
                       {children}
                     </h1>
                   ),
                   h2: ({ children }: { children: string }) => (
-                    <h2 className="text-pretty text-[45px] font-[900] leading-[1.2]">
+                    <h2 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }: { children: string }) => (
-                    <h3 className="text-pretty text-[45px] font-[900] leading-[1.2]">
+                    <h3 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
                       {children}
                     </h3>
                   ),
                   h4: ({ children }: { children: string }) => (
-                    <h4 className="text-pretty text-[45px] font-[900] leading-[1.2]">
+                    <h4 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
                       {children}
                     </h4>
                   ),
                   h5: ({ children }: { children: string }) => (
-                    <h5 className="text-pretty text-[45px] font-[900] leading-[1.2]">
+                    <h5 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
                       {children}
                     </h5>
                   ),
                   h6: ({ children }: { children: string }) => (
-                    <h6 className="text-pretty text-[45px] font-[900] leading-[1.2]">
+                    <h6 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
                       {children}
                     </h6>
                   ),
                   normal: ({ children }: { children: string }) => (
-                    <p className="text-pretty leading-[1.5]">{children}</p>
+                    <p className="text-pretty text-[12px] tablet-md:text-[16px] leading-[1.5]">
+                      {children}
+                    </p>
                   ),
                 },
                 list: {
                   bullet: ({ children }: { children: string }) => (
-                    <ul className="list-disc list-inside">{children[0]}</ul>
+                    <ul className="list-disc list-inside text-[12px] tablet-md:text-[16px] ">
+                      {children[0]}
+                    </ul>
                   ),
                   number: ({ children }: { children: string }) => (
-                    <ol className="list-decimal list-inside">{children[0]}</ol>
+                    <ol className="list-decimal list-inside text-[12px] tablet-md:text-[16px] ">
+                      {children[0]}
+                    </ol>
                   ),
                 },
               } as any
             }
           />
           {buttons.map((button) => (
-            <Link
+            <ButtonLink
               key={button._key}
               href={button.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-paprika inline-block text-center text-white uppercase font-extrabold p-2 tracking-wide hover:opacity-80 transition-all duration-200 ease-in-out px-8"
-            >
-              {button.text}
-            </Link>
+              text={button.text}
+            />
           ))}
         </div>
       </div>
