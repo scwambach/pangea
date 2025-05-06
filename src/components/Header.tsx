@@ -40,13 +40,11 @@ export const Header = ({
           text="Locations"
           color="bg-brick"
           onClick={() => {
-            // prevent scrolling when the menu is open
             if (open) {
               document.body.style.overflow = "auto";
             } else {
               document.body.style.overflow = "hidden";
             }
-            // toggle the menu
             setOpen(!open);
           }}
           className="px-6"
