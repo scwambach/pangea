@@ -2,25 +2,13 @@ import { MediaCardProps } from "@/components/modules/MediaCard";
 import { ImageProps } from "next/image";
 
 export interface GlobalProps {
-  locations: {
-    _id: string;
-    slug: string;
-    hours: {
-      _key: string;
-      title: string;
-      days: string[];
-    }[];
-    address: {
-      street: string;
-      cityStateZip: string;
-    };
-    name: string;
-    socialLinks: string[];
-  }[];
   siteTagline: string;
   mainPhone: string;
   siteLogo: ImageProps;
   siteName: string;
+  siteDescription: string;
+  mainEmail: string;
+  ogImage: ImageProps;
   ctaBanner: {
     image: ImageProps;
     copy: any[];
@@ -30,9 +18,20 @@ export interface GlobalProps {
       href: string;
     }[];
   };
-  siteDescription: string;
-  mainEmail: string;
-  ogImage: ImageProps;
+  navigation: {
+    _key: string;
+    text: string;
+    href: string;
+  }[];
+  header: {
+    items: {
+      _key: string;
+      text: string;
+      href: string;
+    }[];
+    tagline: string;
+  };
+  footer: FooterProps;
 }
 
 export interface MapSelectorItemProps {
@@ -71,3 +70,34 @@ export interface HomePageProps {
     image: ImageProps;
   }[];
 }
+
+export type Address = {
+  cityStateZip: string;
+  street: string;
+};
+
+export type AddressProps = {
+  _key: string;
+  name: string;
+  address: { cityStateZip: string; street: string } | null;
+};
+
+export type HoursProps = {
+  _key: string;
+  name: string;
+  hours:
+    | {
+        _key: string;
+        title: string;
+        days: string[];
+      }[]
+    | null;
+};
+
+export type FooterProps = {
+  email: string;
+  phone: string;
+  addresses: AddressProps[];
+  hours: HoursProps[];
+  socials: (string | null)[];
+};
