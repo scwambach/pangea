@@ -19,7 +19,7 @@ export const Header = ({
   const [open, setOpen] = useState(false);
   return (
     <header className="bg-white relative z-20">
-      <div className="flex justify-between items-center px-[43px]">
+      <div className="max-w-[1370px] mx-auto relative flex justify-between items-center px-4">
         <div className="flex items-center justify-start gap-8">
           <Link
             href="/"
@@ -52,7 +52,7 @@ export const Header = ({
           className="px-6"
         />
         <nav
-          className={`fixed tablet-md:absolute top-0 tablet-md:top-full w-full tablet-md:w-auto right-0 tablet-md:right-[43px] h-full tablet-md:h-auto flex flex-col text-black px-8 pb-8 transition-all duration-500 ease-in-out overflow-hidden bg-offwhite-translucent ${
+          className={`fixed tablet-md:absolute top-0 tablet-md:top-full w-full tablet-md:w-auto right-0 tablet-md:right-4 h-full tablet-md:h-auto flex flex-col text-black px-8 pb-8 transition-all duration-500 ease-in-out overflow-hidden bg-offwhite-translucent ${
             open ? "open" : "closed"
           }`}
         >
