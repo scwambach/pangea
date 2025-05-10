@@ -43,14 +43,16 @@ export const Header = ({
             if (open) {
               document.body.style.overflow = "auto";
             } else {
-              document.body.style.overflow = "hidden";
+              if (window.innerWidth <= 768) {
+                document.body.style.overflow = "hidden";
+              }
             }
             setOpen(!open);
           }}
           className="px-6"
         />
         <nav
-          className={`fixed tablet-md:absolute top-0 tablet-md:top-full w-full tablet-md:w-auto right-0 tablet-md:right-[43px] h-full tablet-md:h-auto flex flex-col text-white px-8 transition-all duration-500 ease-in-out overflow-hidden tablet-md:pb-28 ${
+          className={`fixed tablet-md:absolute top-0 tablet-md:top-full w-full tablet-md:w-auto right-0 tablet-md:right-[43px] h-full tablet-md:h-auto flex flex-col text-black px-8 pb-8 transition-all duration-500 ease-in-out overflow-hidden bg-offwhite-translucent ${
             open ? "open" : "closed"
           }`}
         >
@@ -58,7 +60,7 @@ export const Header = ({
             onClick={() => setOpen(false)}
             className="closeButton tablet-md:hidden absolute z-10 top-4 right-[38px] cursor-pointer"
           >
-            <IoClose size={40} color="#cdc2af" />
+            <IoClose size={40} color="#c09d4f" />
           </button>
           {items.map((item, index) => (
             <Link
@@ -71,7 +73,7 @@ export const Header = ({
             >
               {logo({
                 slug: item.href,
-                color: "#fff",
+                color: "#2d291f",
                 className: "h-[51px] w-auto",
               })}
               {item.href}
