@@ -17,6 +17,7 @@ export const ButtonLink = ({
     | "bg-brick"
     | "bg-pizzaria"
     | "bg-tan"
+    | "bg-black"
     | "bg-wheat"
     | "bg-pangea";
 }) => {

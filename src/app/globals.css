@@ -22,6 +22,7 @@ body {
   --color-tan: #cdc2af;
   --color-wheat: #c09d4f;
   --color-pangea: #a97858;
+  --color-pangea-translucent: rgba(169, 120, 88, 0.8);
   --color-pangea-dark: #8b6c4e;
   --shadow-icon: 0 4px 4px 4px rgba(0, 0, 0, 0.15);
 

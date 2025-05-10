@@ -28,7 +28,5 @@ export const HOME = `{
     flavorsFrom,
     orderOnlineLink
   },
-  "gallery": *[_type == "globalSettings"][0].locations[] -> {
-    "image": imageGallery[0] ${imageQuery},
-  },
+  "gallery": *[_type == "globalSettings"][0].locations[] -> imageGallery[0] ${imageQuery},
 }`;

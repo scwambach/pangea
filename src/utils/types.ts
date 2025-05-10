@@ -66,9 +66,7 @@ export interface HomePageProps {
     orderOnlineLink: string;
     slug: string;
   }[];
-  gallery: {
-    image: ImageProps;
-  }[];
+  gallery: ImageProps[];
 }
 
 export type Address = {
@@ -100,4 +98,26 @@ export type FooterProps = {
   addresses: AddressProps[];
   hours: HoursProps[];
   socials: (string | null)[];
+};
+
+export type RestaurantProps = {
+  name: string;
+  banner: {
+    slug: string;
+    backgroundImage: ImageProps;
+    copy: any[];
+    orderOnlineLink: string;
+  };
+  menus: {
+    name: string;
+    menu: string;
+  }[];
+  featuresBanner: {
+    backgroundImage: ImageProps;
+    copy: any[];
+    email: string;
+  };
+  gallery: ImageProps[];
+  socialLinks: any[];
+  ctaBanner: CtaBannerProps;
 };
