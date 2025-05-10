@@ -1,4 +1,4 @@
-import { LocationCard } from "./LocationCard";
+import { LocationCard } from "./modules/LocationCard";
 
 export const RestaurantGrid = ({
   items,

@@ -1,7 +1,7 @@
 import { CtaBannerProps } from "@/utils/types";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
-import { ButtonLink } from "./ButtonLink";
+import { ButtonLink } from "./modules/ButtonLink";
 
 export const CtaBanner = ({
   image,

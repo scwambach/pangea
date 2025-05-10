@@ -1,10 +1,11 @@
 import tasteBg from "@/images/tasteBg.png";
 import { TasteMakerItemProps } from "@/utils/types";
 import Image from "next/image";
-import { ButtonLink } from "./ButtonLink";
+import { MediaCard } from "./modules/MediaCard";
+
 export const TasteMakers = ({ items }: { items: TasteMakerItemProps[] }) => {
   return (
-    <section className="relative px-8 py-[100px] text-center">
+    <section className="relative px-8 py-[100px] tablet:text-center">
       <Image
         src={tasteBg.src}
         width={tasteBg.width}
@@ -20,30 +21,7 @@ export const TasteMakers = ({ items }: { items: TasteMakerItemProps[] }) => {
         </h3>
         <div className="grid tablet:grid-cols-2 tablet-xl:grid-cols-3 gap-8 desktop-lg:gap-[60px]">
           {items.map((item) => (
-            <div
-              className="bg-white p-[30px] flex flex-col gap-8 justitfy-between"
-              key={item._id}
-            >
-              <p className="text-paprika leading-[1.2] font-[900] tracking-wider uppercase text-[26px]">
-                {item.title}
-              </p>
-              <div className="relative h-[170px]">
-                <Image
-                  {...item.image}
-                  placeholder="blur"
-                  alt={item.title}
-                  className="absolute top-0 left-0 w-full h-full object-cover  select-none pointer-events-none"
-                />
-              </div>
-              <p className="text-lg text-pretty leading-[1.3]">
-                {item.description}
-              </p>
-              <ButtonLink
-                href={item.url}
-                text="Explore"
-                className="max-w-[220px] mx-auto px-8"
-              />
-            </div>
+            <MediaCard key={item._id} {...item} />
           ))}
         </div>
       </div>

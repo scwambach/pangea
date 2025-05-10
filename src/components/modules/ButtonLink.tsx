@@ -6,10 +6,12 @@ export const ButtonLink = ({
   text,
   className,
   color = "bg-paprika",
+  children,
 }: {
   href: string;
-  text: string;
+  text?: string;
   className?: string;
+  children?: React.ReactNode;
   color?:
     | "bg-paprika"
     | "bg-brick"
@@ -27,7 +29,7 @@ export const ButtonLink = ({
       rel={isExternalLink ? "noopener noreferrer" : undefined}
       className={`${color} ${buttonClasses}${className ? ` ${className}` : ""}`}
     >
-      {text}
+      {children || text}
     </Link>
   );
 };

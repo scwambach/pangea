@@ -1,3 +1,4 @@
+import { MediaCardProps } from "@/components/modules/MediaCard";
 import { ImageProps } from "next/image";
 
 export interface GlobalProps {
@@ -41,12 +42,8 @@ export interface MapSelectorItemProps {
   mapImage: ImageProps;
 }
 
-export interface TasteMakerItemProps {
+export interface TasteMakerItemProps extends MediaCardProps {
   _id: string;
-  description: any[];
-  image: ImageProps;
-  title: string;
-  url: string;
 }
 
 export interface CtaBannerProps {

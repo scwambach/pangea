@@ -4,10 +4,12 @@ export const Button = ({
   text,
   onClick,
   className,
+  children,
   color = "bg-paprika",
 }: {
   text: string;
   onClick?: () => void;
+  children?: React.ReactNode;
   className?: string;
   color?:
     | "bg-paprika"
@@ -22,7 +24,7 @@ export const Button = ({
       onClick={onClick}
       className={`${color} cursor-pointer ${buttonClasses}${className ? ` ${className}` : ""}`}
     >
-      {text}
+      {children || text}
     </button>
   );
 };

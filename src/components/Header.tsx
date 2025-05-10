@@ -1,7 +1,7 @@
 "use client";
 import { logo } from "@/utils/themes";
 import Link from "next/link";
-import { Button } from "./Button";
+import { Button } from "./modules/Button";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
