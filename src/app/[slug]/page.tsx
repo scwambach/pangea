@@ -1,5 +1,6 @@
 import { CtaBanner } from "@/components/CtaBanner";
 import { ImageGrid } from "@/components/ImageGrid";
+import { Menus } from "@/components/Menus";
 import { RestaurantHero } from "@/components/ResaurantHero";
 import { RESTAURANT } from "@/queries/restaurant";
 import { getLiveData } from "@/utils/pageData";
@@ -27,6 +28,7 @@ export default async function Home({ params }: any) {
   return (
     <>
       <RestaurantHero {...data.banner} />
+      <Menus items={data.menus} />
       <CtaBanner {...data.ctaBanner} />
       <ImageGrid items={data.gallery} />
     </>

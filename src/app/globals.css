@@ -90,3 +90,28 @@ header {
     }
   }
 }
+
+.activeMenu {
+  text-decoration: underline;
+}
+
+.menuTitle {
+  &:before {
+    content: "";
+    display: block;
+    width: 200%;
+    height: 1px;
+    background-color: var(--color-pangea);
+    margin-bottom: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    max-width: 90vw;
+
+    @media only screen and (max-width: 479px) {
+      content: none;
+    }
+  }
+}

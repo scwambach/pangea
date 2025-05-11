@@ -2,6 +2,7 @@ import { CtaBannerProps } from "@/utils/types";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { ButtonLink } from "./modules/ButtonLink";
+import { SectionHeading } from "./modules/SectionHeading";
 
 export const CtaBanner = ({
   image,
@@ -11,9 +12,8 @@ export const CtaBanner = ({
 }: CtaBannerProps) => {
   return (
     <section className="px-2 tablet-md:px-8 py-[100px] flex flex-col gap-2">
-      <h4 className="text-pangea text-center uppercase font-black tracking-widest text-[26px]">
-        {heading}
-      </h4>
+      <SectionHeading title={heading} className="text-pangea" element="h4" />
+
       <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[830px] mx-auto items-center tablet-md:gap-8 justify-center">
         <Image
           src={image.src}
