@@ -1,10 +1,11 @@
-import Image, { ImageProps } from "next/image";
 import { ButtonLink } from "./ButtonLink";
 import { ArrowRight } from "@/icons";
+import { ImageObject } from "./ImageObject";
+import { CustomImageProps } from "@/utils/types";
 
 export interface MediaCardProps {
   title: string;
-  image: ImageProps;
+  image: CustomImageProps;
   description: string;
   url: string;
 }
@@ -21,9 +22,8 @@ export const MediaCard = ({
         {title}
       </p>
       <div className="w-[152px] tablet:w-auto relative tablet:h-[170px]">
-        <Image
+        <ImageObject
           {...image}
-          placeholder="blur"
           alt={title}
           className="absolute top-0 left-0 w-full h-full object-cover  select-none pointer-events-none"
         />

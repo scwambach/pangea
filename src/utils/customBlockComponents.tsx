@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { slugify } from "./slugify";
+import { ImageObject } from "@/components/modules/ImageObject";
 
 export const customBlockComponents = {
   types: {
     image: ({ value }: { value: any }) => {
-      return <Image {...value} alt="" />;
+      return <ImageObject {...value} alt="" />;
     },
   },
   block: {

@@ -15,12 +15,15 @@ body {
   --color-offwhite: #f5f4ee;
   --color-offwhite-translucent: rgba(245, 244, 238, 0.9);
   --color-paprika: #b54e26;
+  --color-paprika-translucent: rgba(181, 78, 38, 0.5);
   --color-brick: #8f1402;
   --color-brick-translucent: rgba(143, 20, 2, 0.5);
   --color-pizzaria: #805336;
+  --color-pizzaria-translucent: rgba(128, 83, 54, 0.5);
   --color-pizzaria-dark: #66422b;
   --color-tan: #cdc2af;
   --color-wheat: #c09d4f;
+  --color-wheat-translucent: rgba(192, 157, 79, 0.5);
   --color-pangea: #a97858;
   --color-pangea-translucent: rgba(169, 120, 88, 0.8);
   --color-pangea-dark: #8b6c4e;

@@ -3,6 +3,9 @@ export const imageQuery = `{
   "height": asset -> metadata.dimensions.height,
   "width": asset -> metadata.dimensions.width,
   "blurDataURL": asset-> metadata.lqip,
+  "imageFor": {
+    ...,
+  }
 }`;
 
 export const richTextProps = `...,
@@ -11,4 +14,7 @@ _type == 'image' => {
   "src": asset->url,
   "height": asset->metadata.dimensions.height,
   "width": asset->metadata.dimensions.width,
+  "imageFor": {
+    ...,
+  }
 }`;

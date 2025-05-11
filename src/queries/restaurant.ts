@@ -10,11 +10,15 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
     },
     "orderOnlineLink": orderOnlineLink
   },
-  menus[] {
-    name,
-    "menu": menu.asset -> url
+  "menus": {
+    "slug": slug.current,
+    "items":   menus[] {
+      name,
+      "menu": menu.asset -> url
+    }
   },
   "featuresBanner": {
+    "slug": slug.current,
     "backgroundImage": featuresBanner.backgroundImage ${imageQuery},
     "copy": featuresBanner.copy[] {
       ${richTextProps}

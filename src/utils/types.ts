@@ -1,16 +1,45 @@
 import { MediaCardProps } from "@/components/modules/MediaCard";
-import { ImageProps } from "next/image";
+
+export interface CustomImageProps {
+  className?: string;
+  src: string;
+  width: number;
+  height: number;
+  blurDataURL?: string;
+  alt?: string;
+  imageFor: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+    crop?: {
+      _type: string;
+      top: number;
+      bottom: number;
+      left: number;
+      right: number;
+    };
+    hotspot?: {
+      _type: string;
+      x: number;
+      y: number;
+      height: number;
+      width: number;
+    };
+  };
+}
 
 export interface GlobalProps {
   siteTagline: string;
   mainPhone: string;
-  siteLogo: ImageProps;
+  siteLogo: CustomImageProps;
   siteName: string;
   siteDescription: string;
   mainEmail: string;
-  ogImage: ImageProps;
+  ogImage: CustomImageProps;
   ctaBanner: {
-    image: ImageProps;
+    image: CustomImageProps;
     copy: any[];
     buttons: {
       _key: string;
@@ -38,7 +67,7 @@ export interface MapSelectorItemProps {
   _id: string;
   slug: string;
   name: string;
-  mapImage: ImageProps;
+  mapImage: CustomImageProps;
 }
 
 export interface TasteMakerItemProps extends MediaCardProps {
@@ -46,7 +75,7 @@ export interface TasteMakerItemProps extends MediaCardProps {
 }
 
 export interface CtaBannerProps {
-  image: ImageProps;
+  image: CustomImageProps;
   copy: any[];
   heading: string;
   buttons: {
@@ -66,7 +95,7 @@ export interface HomePageProps {
     orderOnlineLink: string;
     slug: string;
   }[];
-  gallery: ImageProps[];
+  gallery: CustomImageProps[];
 }
 
 export type Address = {
@@ -100,24 +129,30 @@ export type FooterProps = {
   socials: (string | null)[];
 };
 
+export type FeatureBannerProps = {
+  backgroundImage: CustomImageProps;
+  copy: any[];
+  slug: string;
+  email: string;
+};
+
 export type RestaurantProps = {
   name: string;
   banner: {
     slug: string;
-    backgroundImage: ImageProps;
+    backgroundImage: CustomImageProps;
     copy: any[];
     orderOnlineLink: string;
   };
   menus: {
-    name: string;
-    menu: string;
-  }[];
-  featuresBanner: {
-    backgroundImage: ImageProps;
-    copy: any[];
-    email: string;
+    slug: string;
+    items: {
+      name: string;
+      menu: string;
+    }[];
   };
-  gallery: ImageProps[];
+  featuresBanner: FeatureBannerProps;
+  gallery: CustomImageProps[];
   socialLinks: any[];
   ctaBanner: CtaBannerProps;
 };

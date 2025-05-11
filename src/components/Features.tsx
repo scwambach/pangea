@@ -1,46 +1,36 @@
-import { bgTheme, logo } from "@/utils/themes";
-import { PortableText } from "next-sanity";
+import { bgTheme } from "@/utils/themes";
+import { FeatureBannerProps } from "@/utils/types";
 import { ButtonLink } from "./modules/ButtonLink";
-import { CustomImageProps } from "@/utils/types";
+import { PortableText } from "next-sanity";
 import { ImageObject } from "./modules/ImageObject";
 
-export const RestaurantHero = ({
+export const Features = ({
   backgroundImage,
-  slug,
   copy,
-  orderOnlineLink,
-}: {
-  backgroundImage?: CustomImageProps;
-  slug: string;
-  copy: any[];
-  orderOnlineLink: string;
-}) => {
+  slug,
+  email,
+}: FeatureBannerProps) => {
   const headingClasses =
     "text-pretty text-[35px] tablet-md:text-[45px] leading-[1.2]";
   const paragraphClasses =
     "text-pretty max-w-[550px] text-[16px] leading-[1.5]";
-  const listClasses =
-    "list-disc list-inside text-[12px] tablet-md:text-[16px] ";
+  const listClasses = "flex uppercase flex-col gap-4 tracking-wide";
   return (
     <section className="relative">
       {backgroundImage && (
         <ImageObject
           {...backgroundImage}
           className="absolute
-        top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
+              top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
         />
       )}
-      <div className="max-w-[1370px] text-center mx-auto relative flex justify-between items-center tablet-lg:px-4">
-        <div className="px-4 py-16 tablet-lg:px-[50px] tablet-lg:py-[90px] relative text-white w-full tablet-lg:max-w-[450px] z-10">
+
+      <div className="max-w-[1370px] text-center mx-auto relative flex justify-end items-center tablet-lg:px-4">
+        <div className="px-4 py-16 tablet-lg:px-[50px] tablet-lg:py-[150px] relative text-white w-full tablet-lg:max-w-[450px] z-10">
           <div
             className={`${bgTheme(slug)} absolute top-0 left-0 w-full h-full opacity-80 tablet-lg:opacity-100`}
           />
           <div className="relative flex flex-col items-center gap-8 ">
-            {logo({
-              slug,
-              color: "#fff",
-              className: "h-[152px] w-auto mx-auto",
-            })}
             <PortableText
               value={copy}
               components={
@@ -70,20 +60,20 @@ export const RestaurantHero = ({
                   },
                   list: {
                     bullet: ({ children }: { children: string }) => (
-                      <ul className={listClasses}>{children[0]}</ul>
+                      <ul className={listClasses}>{children}</ul>
                     ),
                     number: ({ children }: { children: string }) => (
-                      <ol className={listClasses}>{children[0]}</ol>
+                      <ol className={listClasses}>{children}</ol>
                     ),
                   },
                 } as any
               }
             />
             <ButtonLink
-              href={orderOnlineLink}
-              text="Order Online"
               color="bg-black"
-              className="text-[12px] tablet-md:text-[16px] px-8"
+              className="px-8"
+              text="Email for more info"
+              href={`mailto:${email}`}
             />
           </div>
         </div>
