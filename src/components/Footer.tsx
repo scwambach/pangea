@@ -5,6 +5,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Connect } from "./modules/Connect";
 import { FooterBlock } from "./modules/FooterBlock";
 import { FooterColumn } from "./modules/FooterColumn";
+import Link from "next/link";
 
 export const Footer = ({
   addresses,
@@ -121,23 +122,23 @@ export const Footer = ({
               );
             })}
           </FooterBlock>
-          <FooterBlock heading="Careers ">
-            <a
+          <FooterBlock heading="Careers" className="tablet-lg:hidden">
+            <Link
               href="/careers"
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
               Join Our Team
-            </a>
+            </Link>
           </FooterBlock>
         </FooterColumn>
         <FooterColumn className="hidden tablet-lg:flex">
           <FooterBlock heading="Careers ">
-            <a
+            <Link
               href="/careers"
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
               Join Our Team
-            </a>
+            </Link>
           </FooterBlock>
         </FooterColumn>
       </div>

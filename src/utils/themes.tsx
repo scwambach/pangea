@@ -1,4 +1,5 @@
 import { LangLogo, PangeaLogo, SazonLogo } from "@/icons";
+import napoli from "@/images/napoli.jpg";
 
 export const bgTheme = (slug: string) => {
   return slug === "pangea-kitchen"
@@ -10,6 +11,18 @@ export const bgTheme = (slug: string) => {
         : slug === "sazon-y-fuego"
           ? "bg-paprika"
           : "bg-wheat";
+};
+
+export const decorationTheme = (slug: string) => {
+  return slug === "pangea-kitchen"
+    ? "decoration-pangea"
+    : slug === "pangea-pizzaria"
+      ? "decoration-pizzaria"
+      : slug === "2nd-language"
+        ? "decoration-wheat"
+        : slug === "sazon-y-fuego"
+          ? "decoration-paprika"
+          : "decoration-wheat";
 };
 
 export const textTheme = (slug: string) => {
@@ -44,4 +57,16 @@ export const logo = ({
   ) : (
     <PangeaLogo color={color} className={className} />
   );
+};
+
+export const blogBgTheme = (slug: string) => {
+  return slug === "pangea-kitchen"
+    ? napoli
+    : slug === "pangea-pizzaria"
+      ? napoli
+      : slug === "2nd-language"
+        ? napoli
+        : slug === "sazon-y-fuego"
+          ? napoli
+          : napoli;
 };

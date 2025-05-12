@@ -32,6 +32,16 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
       ${richTextProps}
     }
   },
+  "relatedPosts": {
+    "slug": slug.current,
+    "items": *[_type == "post" && references(^._id) && attachedLocation._ref == ^._id] | order(publishedAt desc)[0...3] {
+      _id,
+      title,
+      "url": "/" + slug.current,
+      description,
+      "image": mainImage ${imageQuery},
+    }
+  },
   socialLinks,
   "gallery": imageGallery[] ${imageQuery},
 }`;

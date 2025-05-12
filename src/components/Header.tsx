@@ -2,7 +2,7 @@
 import { logo } from "@/utils/themes";
 import Link from "next/link";
 import { Button } from "./modules/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 
 export const Header = ({
@@ -12,11 +12,36 @@ export const Header = ({
   tagline: string;
   items: {
     _key: string;
+    isActive?: boolean;
+    externalUrl?: string;
     text: string;
     href: string;
   }[];
 }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (open && !target.closest("nav") && !target.closest(".closeButton")) {
+        setOpen(false);
+        document.body.style.overflow = "auto";
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (open && event.key === "Escape") {
+        setOpen(false);
+        document.body.style.overflow = "auto";
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
   return (
     <header className="bg-white relative z-20">
       <div className="max-w-[1370px] mx-auto relative flex justify-between items-center px-4">
@@ -65,11 +90,18 @@ export const Header = ({
           {items.map((item, index) => (
             <Link
               key={item._key}
-              href={`/${item.href}`}
+              href={item.isActive ? `/${item.href}` : item.externalUrl || "#"}
+              target={item.isActive ? "_self" : "_blank"}
+              rel={item.isActive ? undefined : "noopener noreferrer"}
+              tabIndex={open ? 0 : -1} // <-- add this line
               className={`flex gap-4 items-center font-extrabold py-4 tracking-wide uppercase text-lg cursor-pointer relative z-10 border-b-[2px] border-tan transition-opacity duration-300 ease-in-out tablet-md:hover:text-tan ${
                 open ? "opacity-100" : "opacity-0"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
+              onClick={() => {
+                document.body.style.overflow = "auto";
+                setOpen(false);
+              }}
             >
               {logo({
                 slug: item.href,

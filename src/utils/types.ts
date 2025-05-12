@@ -67,10 +67,15 @@ export interface MapSelectorItemProps {
   _id: string;
   slug: string;
   name: string;
+  isActive?: string;
+  externalUrl?: string;
   mapImage: CustomImageProps;
 }
 
 export interface TasteMakerItemProps extends MediaCardProps {
+  _id: string;
+}
+export interface PostItemProps extends MediaCardProps {
   _id: string;
 }
 
@@ -155,4 +160,8 @@ export type RestaurantProps = {
   gallery: CustomImageProps[];
   socialLinks: any[];
   ctaBanner: CtaBannerProps;
+  relatedPosts: {
+    slug: string;
+    items: PostItemProps[];
+  };
 };

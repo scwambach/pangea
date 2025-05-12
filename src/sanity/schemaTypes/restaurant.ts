@@ -25,6 +25,21 @@ export const restaurant = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "isActive",
+      title: "Is Active",
+      type: "boolean",
+      initialValue: true,
+      description: "Uncheck to hide this restaurant from the website.",
+    }),
+    defineField({
+      name: "externalUrl",
+      title: "External URL",
+      type: "url",
+      hidden: ({ document }: any) => {
+        return document?.isActive;
+      },
+    }),
+    defineField({
       name: "mapImage",
       title: "Map Image",
       type: "image",

@@ -6,7 +6,9 @@ export const FooterColumn = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className={`flex flex-col gap-16 ${className ? ` ${className}` : ""}`}>
+    <div
+      className={`flex flex-col gap-8 tablet-lg:gap-16 ${className ? ` ${className}` : ""}`}
+    >
       {children}
     </div>
   );

@@ -8,19 +8,13 @@ export const GLOBAL = `*[_type == "globalSettings"][0] {
   mainEmail,
   ogImage ${imageQuery},
   siteTagline,
-  "locations": *[_type == "globalSettings"][0].locations[] -> {
-    _id,
-    name,
-    "slug": slug.current,
-    address,
-    hours,
-    socialLinks
-  },
   "header": {
     "items": *[_type == "globalSettings"][0].locations[] -> {
       "_key": _id,
       "text": name,
-      "href": slug.current
+      "href": slug.current,
+      isActive,
+      externalUrl,
     },
     "tagline": siteTagline,
   },

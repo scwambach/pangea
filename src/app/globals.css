@@ -50,7 +50,22 @@ body {
         text-decoration: underline;
         text-decoration-thickness: 7px;
         text-underline-offset: 10px;
-        text-decoration-color: var(--color-pangea);
+
+        &.decoration-pangea {
+          text-decoration-color: var(--color-pangea);
+        }
+
+        &.decoration-wheat {
+          text-decoration-color: var(--color-wheat);
+        }
+
+        &.decoration-paprika {
+          text-decoration-color: var(--color-paprika);
+        }
+
+        &.decoration-pizzaria {
+          text-decoration-color: var(--color-pizzaria);
+        }
       }
     }
   }

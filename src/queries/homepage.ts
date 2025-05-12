@@ -19,12 +19,16 @@ export const HOME = `{
     _id,
     name,
     "slug": slug.current,
+    isActive,
+    externalUrl,
     mapImage ${imageQuery},
   },
   "restaurantGrid": *[_type == "globalSettings"][0].locations[] -> {
     _id,
     name,
     "slug": slug.current,
+    isActive,
+    externalUrl,
     flavorsFrom,
     orderOnlineLink
   },

@@ -4,11 +4,15 @@ import { ButtonLink } from "./ButtonLink";
 export const LocationCard = ({
   name,
   slug,
+  isActive = true,
+  externalUrl,
   flavorsFrom,
   orderOnlineLink,
 }: {
   name: string;
   slug: string;
+  isActive?: boolean;
+  externalUrl?: string;
   flavorsFrom: string[];
   orderOnlineLink?: string;
 }) => {
@@ -43,17 +47,17 @@ export const LocationCard = ({
         <div className="flex tablet:flex-col gap-2 px-4 tablet:px-[30px]">
           <span className="hidden tablet:block">
             <ButtonLink
-              href={`${slug}#menu`}
+              href={isActive ? `${slug}#menu` : externalUrl || "#"}
               color={bgTheme(slug)}
-              text="View the Menu"
+              text={isActive ? "View the Menu" : "Website"}
               className="px-4 text-[16px] w-full"
             />
           </span>
           <span className="tablet:hidden w-full">
             <ButtonLink
-              href={`${slug}#menu`}
+              href={isActive ? `${slug}#menu` : externalUrl || "#"}
               color={bgTheme(slug)}
-              text="Menu"
+              text={isActive ? "Menu" : "Website"}
               className="px-4 text-[14px] w-full"
             />
           </span>

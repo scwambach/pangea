@@ -1,5 +1,5 @@
 "use client";
-import { logo } from "@/utils/themes";
+import { decorationTheme, logo } from "@/utils/themes";
 import { MapSelectorItemProps } from "@/utils/types";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,7 +21,9 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
             {items.map((item) => (
               <Link
                 key={item._id}
-                href={`/${item.slug}`}
+                href={item.isActive ? `/${item.slug}` : item.externalUrl || "#"}
+                target={item.isActive ? "_self" : "_blank"}
+                rel={item.isActive ? undefined : "noopener noreferrer"}
                 onMouseOver={() => setActiveLocation(item)}
                 className={`flex items-center font-extrabold tracking-wide uppercase text-lg cursor-pointer relative z-10 justify-start gap-4 border-b-[1px] pb-8 border-tan${activeLocation.slug === item.slug ? " active" : ""}`}
               >
@@ -30,7 +32,7 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
                   color: "#fff",
                   className: "h-[87px] w-auto",
                 })}
-                <span>{item.name}</span>
+                <span className={decorationTheme(item.slug)}>{item.name}</span>
               </Link>
             ))}
           </div>

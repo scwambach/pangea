@@ -7,6 +7,8 @@ export const RestaurantGrid = ({
   items: {
     name: string;
     slug: string;
+    isActive?: boolean;
+    externalUrl?: string;
     flavorsFrom: string[];
     orderOnlineLink: string;
   }[];
