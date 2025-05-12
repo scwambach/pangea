@@ -1,10 +1,9 @@
 "use client";
 import { logo } from "@/utils/themes";
 import { MapSelectorItemProps } from "@/utils/types";
-import Image from "next/image";
 import Link from "next/link";
-import defaultMap from "@/images/defaultMap.png";
 import { useState } from "react";
+import { ImageObject } from "./modules/ImageObject";
 
 export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
   const [activeLocation, setActiveLocation] = useState<MapSelectorItemProps>(
@@ -36,19 +35,14 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
             ))}
           </div>
         </div>
-        <Image
+        <ImageObject
           {...activeLocation.mapImage}
-          placeholder="blur"
           alt={`${activeLocation.name} Map`}
           className="hidden tablet-md:block absolute w-[1175px] top-1/2 object-cover -translate-y-1/2 right-0 h-[591px] pointer-events-none select-none"
         />
-        <Image
-          src={defaultMap.src}
-          width={defaultMap.width}
-          height={defaultMap.height}
+        <ImageObject
+          {...activeLocation.mapImage}
           alt={`${activeLocation.name} Map`}
-          placeholder="blur"
-          blurDataURL={defaultMap.blurDataURL}
           className="block tablet-md:hidden absolute w-[1175px] top-1/2 object-contain -translate-y-1/2 right-0 h-[591px] pointer-events-none select-none"
         />
       </div>
