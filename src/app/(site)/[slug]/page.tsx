@@ -68,7 +68,9 @@ export default async function Page({
       <RestaurantHero {...data.banner} />
       <Menus {...data.menus} />
       <Features {...data.featuresBanner} />
-      <RecentPosts {...data.relatedPosts} />
+      {data.relatedPosts.items.length > 0 && (
+        <RecentPosts {...data.relatedPosts} />
+      )}
       <CtaBanner {...data.ctaBanner} />
       <Newsletter socials={data.socialLinks} />
       <ImageGrid items={data.gallery} />

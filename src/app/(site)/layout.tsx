@@ -6,6 +6,10 @@ import { GlobalProps } from "@/utils/types";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { urlFor } from "@/utils/urlFor";
+import { DisableDraftMode } from "@/components/DisableDraftMode";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
+import { SanityLive } from "@/sanity/lib/live";
 
 const montSans = Montserrat({
   variable: "--font-geist-sans",
@@ -54,10 +58,19 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${montSans.variable} antialiased leading-[1.3]`}>
+      <body
+        className={`${montSans.variable} antialiased leading-[1.3] bg-white`}
+      >
         <Header {...data.header} />
         <main>{children}</main>
         <Footer {...data.footer} />
+        <SanityLive />
+        {(await draftMode()).isEnabled && (
+          <>
+            <DisableDraftMode />
+            <VisualEditing />
+          </>
+        )}
       </body>
     </html>
   );
