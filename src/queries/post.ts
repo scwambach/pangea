@@ -12,7 +12,7 @@ export const POST = `*[_type == "post" && slug.current == $post][0] {
     "slug": slug.current,
     title,
   },
-  "previousPost": *[_type == "post" && publishedAt > ^.publishedAt] | order(publishedAt desc)[0] {
+  "previousPost": *[_type == "post" && publishedAt > ^.publishedAt] | order(publishedAt asc)[0] {
     "slug": slug.current,
     title,
   },
