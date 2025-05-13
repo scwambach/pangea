@@ -5,9 +5,41 @@ import { customBlockComponents } from "@/utils/customBlockComponents";
 import { getLiveData } from "@/utils/pageData";
 import { bgTheme, logo } from "@/utils/themes";
 import { PostProps } from "@/utils/types";
+import { urlFor } from "@/utils/urlFor";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ post: string }>;
+}) {
+  const { post } = await params;
+  const {
+    data,
+  }: {
+    data: PostProps;
+  } = await getLiveData({
+    query: POST,
+    params: {
+      post,
+    },
+    usePreview: false,
+  });
+
+  if (!data) {
+    notFound();
+  }
+
+  return {
+    title: `${data.title} | Blog | Pangea`,
+    description: data.description,
+    openGraph: {
+      images: `${urlFor(data.mainImage.imageFor).width(600)}`,
+    },
+  };
+}
 
 export default async function BlogPost({
   params,

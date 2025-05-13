@@ -8,9 +8,40 @@ import { RestaurantHero } from "@/components/ResaurantHero";
 import { RESTAURANT } from "@/queries/restaurant";
 import { getLiveData } from "@/utils/pageData";
 import { RestaurantProps } from "@/utils/types";
+import { urlFor } from "@/utils/urlFor";
 import { notFound } from "next/navigation";
 
-export default async function Home({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const {
+    data,
+  }: {
+    data: RestaurantProps;
+  } = await getLiveData({
+    query: RESTAURANT,
+    params: {
+      slug,
+    },
+    usePreview: false,
+  });
+
+  if (!data || data.isActive === false) {
+    notFound();
+  }
+
+  return {
+    title: `${data.name} | Pangea`,
+    openGraph: {
+      images: `${urlFor(data.banner.backgroundImage.imageFor).width(600)}`,
+    },
+  };
+}
+
+export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string }>;

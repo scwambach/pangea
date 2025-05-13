@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "@/app/globals.css";
 import { getLiveData } from "@/utils/pageData";
@@ -6,6 +5,7 @@ import { GLOBAL } from "@/queries/global";
 import { GlobalProps } from "@/utils/types";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { urlFor } from "@/utils/urlFor";
 
 const montSans = Montserrat({
   variable: "--font-geist-sans",
@@ -13,10 +13,27 @@ const montSans = Montserrat({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Pangea",
-  description: "Global flavors, local soul",
-};
+export async function generateMetadata() {
+  const {
+    data,
+  }: {
+    data: GlobalProps;
+  } = await getLiveData({
+    query: GLOBAL,
+    params: {
+      slug: "/",
+    },
+    usePreview: false,
+  });
+
+  return {
+    title: `${data.siteName} | ${data.siteTagline}`,
+    description: data.siteDescription,
+    openGraph: {
+      images: `${urlFor(data.ogImage.imageFor).width(600)}`,
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
