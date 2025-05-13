@@ -37,9 +37,9 @@ export const MediaCard = ({
   buttonText = "Explore",
 }: MediaCardProps) => {
   return (
-    <div className="bg-white p-2 tablet:p-[30px] flex tablet:flex-col gap-8 justitfy-between">
+    <div className="bg-white p-2 tablet:p-[30px] flex tablet:flex-col gap-8 justify-between">
       <p
-        className={`hidden tablet:block ${textColor} leading-[1.2] font-[900] tracking-wider uppercase text-[26px]`}
+        className={`hidden tablet:block ${textColor} leading-[1.2] font-[900] tracking-wider uppercase text-[24px]`}
       >
         {title}
       </p>
@@ -50,7 +50,7 @@ export const MediaCard = ({
           className="absolute top-0 left-0 w-full h-full object-cover  select-none pointer-events-none"
         />
       </div>
-      <div className="flex flex-col gap-4 tablet:gap-8 justitfy-between py-4 tablet:py-0 w-[calc(100%-190px)] tablet:w-full">
+      <div className="flex flex-col gap-4 tablet:gap-8 justify-between py-4 tablet:py-0 w-[calc(100%-190px)] tablet:w-full">
         <p
           className={`${textColor} leading-[1.2] font-[900] tracking-wider uppercase text-[26px] tablet:hidden`}
         >
