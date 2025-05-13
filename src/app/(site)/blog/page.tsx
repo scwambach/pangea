@@ -12,9 +12,10 @@ export const metadata = {
 export default async function Blog({
   searchParams,
 }: {
-  searchParams: { p?: string };
+  searchParams: Promise<{ p?: string }>;
 }) {
-  const currentPage = parseInt(searchParams.p || "1", 10);
+  const { p } = await searchParams;
+  const currentPage = parseInt(p || "1", 10);
   const itemsPerPage = 8;
   const start = (currentPage - 1) * itemsPerPage;
 
