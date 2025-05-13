@@ -6,7 +6,7 @@ import { SectionHeading } from "./modules/SectionHeading";
 
 export const TasteMakers = ({ items }: { items: TasteMakerItemProps[] }) => {
   return (
-    <section className="relative px-8 py-[100px]">
+    <section className="relative px-4 py-[100px]">
       <Image
         src={tasteBg.src}
         width={tasteBg.width}

@@ -17,7 +17,7 @@ export const RestaurantGrid = ({
     <section className="max-w-[1250px] mx-auto px-4 overflow-hidden pt-[80px] pb-[120px]">
       <SectionHeading
         title="Select your destination"
-        className="text-pangea pb-[50px]"
+        className="text-pangea tablet:pb-[50px]"
         element="h2"
       />
 
