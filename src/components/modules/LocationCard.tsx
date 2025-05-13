@@ -19,10 +19,10 @@ export const LocationCard = ({
   return (
     <div
       key={slug}
-      className="text-center bg-offwhite relative top-[72.5px] mb-[30px] tablet:mb-[60px] tablet:max-w-[300px] sm:max-w-none mx-auto w-full flex items-stretch tablet:flex-col"
+      className="text-center bg-offwhite relative top-[72.5px] mb-[30px] tablet:mb-[60px] tablet:max-w-[300px] sm:max-w-none mx-auto w-full flex items-stretch flex-col mobile-lg:flex-row tablet:flex-col"
     >
       <div
-        className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 tablet:px-7 w-full max-w-[170px] tablet:max-w-none tablet:min-h-[145px] flex flex-col justify-between`}
+        className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 tablet:px-7 w-full mobile-lg:max-w-[170px] tablet:max-w-none tablet:min-h-[145px] flex flex-col justify-between`}
       >
         <div className="flex justify-center items-center relative h-[120px] w-[120px] bg-white rounded-full mx-auto shadow-icon -mb-[15px] tablet:-mb-[60px] -top-[30px] tablet:-top-[60px]">
           {logo({
@@ -34,7 +34,7 @@ export const LocationCard = ({
           {name}
         </p>
       </div>
-      <div className="tablet:py-[30px] flex flex-col h-full justify-center tablet:justify-between gap-4 tablet:gap-10 w-full">
+      <div className="tablet:py-[30px] py-4 mobile-lg:py-0 flex flex-col h-full justify-center tablet:justify-between gap-4 tablet:gap-10 w-full">
         {flavorsFrom && (
           <div className="px-[16px] tablet:max-w-none mx-auto">
             <p className={`${textTheme(slug)} uppercase font-bold`}>
