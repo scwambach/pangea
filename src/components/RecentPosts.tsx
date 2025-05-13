@@ -12,7 +12,7 @@ export const RecentPosts = ({
   items: PostItemProps[];
 }) => {
   return (
-    <section className="relative px-8 py-[100px]">
+    <section className="relative px-8 py-[100px] border-y-[2px] tablet-lg:border-none border-offwhite">
       <Image
         src={blogBgTheme(slug).src}
         alt=""
