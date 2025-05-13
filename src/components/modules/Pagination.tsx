@@ -1,11 +1,18 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
+import { ArrowRight } from "@/icons";
 
-export const Pagination = ({ total }: { total: number }) => {
+export const Pagination = ({
+  totalItems,
+  itemsPerPage,
+}: {
+  totalItems: number;
+  itemsPerPage: number;
+}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentPage = parseInt(searchParams.get("p") || "1", 10);
-  const totalPages = Math.ceil(total / 2);
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const goToPage = (page: number) => {
     router.push(`?p=${page}`);
@@ -53,9 +60,16 @@ export const Pagination = ({ total }: { total: number }) => {
       <button
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage <= 1}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className={`mr-8 ${currentPage <= 1 ? "cursor-not-allowed" : "cursor-pointer"}`}
       >
-        &lt;
+        <ArrowRight
+          color={
+            currentPage <= 1
+              ? "var(--color-black-translucent)"
+              : "var(--color-pangea)"
+          }
+          className="w-[15px] h-auto rotate-180"
+        />
       </button>
 
       {pageNumbers.map((page, idx) =>
@@ -63,8 +77,8 @@ export const Pagination = ({ total }: { total: number }) => {
           <button
             key={page}
             onClick={() => goToPage(page)}
-            className={`px-3 py-1 border rounded cursor-pointer ${
-              page === currentPage ? "bg-black text-white" : ""
+            className={`px-3 py-1 min-w-[35px] leading-[25px] rounded cursor-pointer ${
+              page === currentPage ? "bg-tan" : ""
             }`}
           >
             {page}
@@ -79,9 +93,16 @@ export const Pagination = ({ total }: { total: number }) => {
       <button
         onClick={() => goToPage(currentPage + 1)}
         disabled={currentPage >= totalPages}
-        className="px-3 py-1 border rounded disabled:opacity-50"
+        className={`ml-8 ${currentPage >= totalPages ? "cursor-not-allowed" : "cursor-pointer"}`}
       >
-        &gt;
+        <ArrowRight
+          color={
+            currentPage >= totalPages
+              ? "var(--color-black-translucent)"
+              : "var(--color-pangea)"
+          }
+          className="w-[15px] h-auto"
+        />
       </button>
     </div>
   );

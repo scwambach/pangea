@@ -4,7 +4,16 @@ import { BLOGROLL } from "@/queries/blog";
 import { getLiveData } from "@/utils/pageData";
 import { CustomImageProps } from "@/utils/types";
 
-export default async function Blog() {
+// Blog page component
+export default async function Blog({
+  searchParams,
+}: {
+  searchParams: { p?: string };
+}) {
+  const currentPage = parseInt(searchParams.p || "1", 10);
+  const itemsPerPage = 8;
+  const start = (currentPage - 1) * itemsPerPage;
+
   const {
     data,
   }: {
@@ -27,22 +36,31 @@ export default async function Blog() {
   } = await getLiveData({
     query: BLOGROLL,
     params: {
-      slug: "",
+      start,
+      limit: itemsPerPage,
     },
     usePreview: false,
   });
+
+  const totalPages = Math.ceil(data.totalPostCount / itemsPerPage);
 
   return (
     <div className="px-4 text-center">
       <h1 className="font-extrabold text-[45px] text-black py-12">
         Sed feugiat, sem ut laoreet.
       </h1>
-      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 max-w-[1200px] mx-auto">
+      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 max-w-[1200px] mx-auto my-48">
         {data.posts.map((item) => (
           <PostCard key={item._id} {...item} />
         ))}
       </div>
-      <Pagination total={data.totalPostCount} />
+
+      {totalPages > 1 && (
+        <Pagination
+          totalItems={data.totalPostCount}
+          itemsPerPage={itemsPerPage}
+        />
+      )}
     </div>
   );
 }

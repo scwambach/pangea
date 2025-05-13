@@ -1,7 +1,7 @@
 import { imageQuery } from "./common";
 
 export const BLOGROLL = `{
-  "posts": *[_type == "post"] | order(publishedAt desc) {
+  "posts": *[_type == "post"] | order(publishedAt desc)[$start...$start + $limit] {
     _id,
     title,
     "slug": slug.current,

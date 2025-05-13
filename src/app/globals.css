@@ -14,6 +14,7 @@ body {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-black: #2d291f;
+  --color-black-translucent: rgba(45, 41, 31, 0.2);
   --color-offwhite: #f5f4ee;
   --color-offwhite-translucent: rgba(245, 244, 238, 0.9);
   --color-paprika: #b54e26;
