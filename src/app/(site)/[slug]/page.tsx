@@ -2,6 +2,7 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Features } from "@/components/Features";
 import { ImageGrid } from "@/components/ImageGrid";
 import { Menus } from "@/components/Menus";
+import { Newsletter } from "@/components/Newsletter";
 import { RecentPosts } from "@/components/RecentPosts";
 import { RestaurantHero } from "@/components/ResaurantHero";
 import { RESTAURANT } from "@/queries/restaurant";
@@ -23,7 +24,7 @@ export default async function Home({ params }: any) {
     usePreview: false,
   });
 
-  if (!data) {
+  if (!data || data.isActive === false) {
     notFound();
   }
 
@@ -34,6 +35,7 @@ export default async function Home({ params }: any) {
       <Features {...data.featuresBanner} />
       <RecentPosts {...data.relatedPosts} />
       <CtaBanner {...data.ctaBanner} />
+      <Newsletter socials={data.socialLinks} />
       <ImageGrid items={data.gallery} />
     </>
   );

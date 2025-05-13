@@ -143,6 +143,8 @@ export type FeatureBannerProps = {
 
 export type RestaurantProps = {
   name: string;
+  isActive?: boolean;
+  externalUrl?: string;
   banner: {
     slug: string;
     backgroundImage: CustomImageProps;

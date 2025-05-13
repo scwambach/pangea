@@ -1,27 +1,34 @@
 import { buttonClasses } from "@/utils/buttonClasses";
 
 export const Button = ({
-  text,
-  onClick,
-  className,
   children,
+  className,
   color = "bg-paprika",
+  disabled,
+  onClick,
+  text,
+  type = "button",
 }: {
-  text: string;
-  onClick?: () => void;
   children?: React.ReactNode;
   className?: string;
   color?:
-    | "bg-paprika"
+    | "bg-black"
     | "bg-brick"
+    | "bg-pangea"
+    | "bg-paprika"
     | "bg-pizzaria"
     | "bg-tan"
-    | "bg-wheat"
-    | "bg-pangea";
+    | "bg-wheat";
+  disabled?: boolean;
+  onClick?: () => void;
+  text?: string;
+  type?: "button" | "submit" | "reset";
 }) => {
   return (
     <button
       onClick={onClick}
+      type={type}
+      disabled={disabled}
       className={`${color} cursor-pointer ${buttonClasses}${className ? ` ${className}` : ""}`}
     >
       {children || text}

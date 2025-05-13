@@ -3,7 +3,7 @@ import { CustomImageProps } from "@/utils/types";
 
 export const ImageGrid = ({ items }: { items: CustomImageProps[] }) => {
   return (
-    <section>
+    <section className="border-y-[2px] border-white">
       <div className="grid gap-[2px] grid-cols-2 tablet-xl:grid-cols-4">
         {items.map((image, index) => (
           <div key={index} className="relative max-h-[357px] overflow-hidden">
