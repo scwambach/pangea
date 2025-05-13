@@ -167,3 +167,26 @@ export type RestaurantProps = {
     items: PostItemProps[];
   };
 };
+
+export type PostProps = {
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  content: any[];
+  nextPost: {
+    slug: string;
+    title: string;
+  };
+  previousPost: {
+    slug: string;
+    title: string;
+  };
+  attachedLocation: {
+    name: string;
+    isActive: boolean;
+    externalUrl: string;
+    slug: string;
+  };
+  mainImage: CustomImageProps;
+};

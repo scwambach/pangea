@@ -10,7 +10,11 @@ import { getLiveData } from "@/utils/pageData";
 import { RestaurantProps } from "@/utils/types";
 import { notFound } from "next/navigation";
 
-export default async function Home({ params }: any) {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const {
     data,
