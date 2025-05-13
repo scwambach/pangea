@@ -1,9 +1,11 @@
 export const LangLogo = ({
   color,
   className,
+  style,
 }: {
   color?: string;
   className?: string;
+  style?: React.CSSProperties;
 }) => {
   return (
     <svg
@@ -12,6 +14,7 @@ export const LangLogo = ({
       viewBox="0 0 89 89"
       height="89"
       width="89"
+      style={style}
       className={className}
     >
       <g clipPath="url(#clip0_39_962)">

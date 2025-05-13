@@ -1,9 +1,11 @@
 export const SazonLogo = ({
   color,
   className,
+  style,
 }: {
   color?: string;
   className?: string;
+  style?: React.CSSProperties;
 }) => {
   return (
     <svg
@@ -12,6 +14,7 @@ export const SazonLogo = ({
       viewBox="0 0 84 83"
       height="83"
       width="84"
+      style={style}
       className={className}
     >
       <path

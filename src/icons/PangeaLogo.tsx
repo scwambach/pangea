@@ -1,8 +1,10 @@
 export const PangeaLogo = ({
   color,
+  style,
   className,
 }: {
   color?: string;
+  style?: React.CSSProperties;
   className?: string;
 }) => {
   return (
@@ -13,6 +15,7 @@ export const PangeaLogo = ({
       height="87"
       width="84"
       className={className}
+      style={style}
     >
       <g clipPath="url(#clip0_13_1026)">
         <path

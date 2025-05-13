@@ -23,8 +23,8 @@ export const globalSettings = defineType({
       },
     },
     {
-      name: "passportProgram",
-      title: "Passport Program",
+      name: "ctaBanner",
+      title: "CTA Banner",
       options: {
         collapsible: true,
         collapsed: true,
@@ -111,7 +111,7 @@ export const globalSettings = defineType({
     defineField({
       name: "ctaBanner",
       title: "CTA Banner",
-      fieldset: "passportProgram",
+      fieldset: "ctaBanner",
       type: "object",
       fields: [
         defineField({

@@ -40,22 +40,24 @@ export const textTheme = (slug: string) => {
 export const logo = ({
   slug,
   color,
+  style,
   className,
 }: {
   slug: string;
   color?: string;
+  style?: React.CSSProperties;
   className?: string;
 }) => {
   return slug === "pangea-kitchen" ? (
-    <PangeaLogo color={color} className={className} />
+    <PangeaLogo color={color} className={className} style={style} />
   ) : slug === "pangea-pizzaria" ? (
-    <PangeaLogo color={color} className={className} />
+    <PangeaLogo color={color} className={className} style={style} />
   ) : slug === "2nd-language" ? (
-    <LangLogo color={color} className={className} />
+    <LangLogo color={color} className={className} style={style} />
   ) : slug === "sazon-y-fuego" ? (
-    <SazonLogo color={color} className={className} />
+    <SazonLogo color={color} className={className} style={style} />
   ) : (
-    <PangeaLogo color={color} className={className} />
+    <PangeaLogo color={color} className={className} style={style} />
   );
 };
 

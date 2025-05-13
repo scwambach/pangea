@@ -15,7 +15,11 @@ export const structure: StructureResolver = (S) =>
         .icon(IoRestaurantOutline),
       S.listItem()
         .title("Posts")
-        .child(S.documentTypeList("post").title("Posts"))
+        .child(
+          S.documentTypeList("post")
+            .title("Posts")
+            .defaultOrdering([{ field: "publishedAt", direction: "asc" }])
+        )
         .icon(TfiPencilAlt),
       S.listItem()
         .title("Taste Maker Links")

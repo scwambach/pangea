@@ -1,6 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { richTextProps } from "./protableProps";
 import { IoRestaurantOutline } from "react-icons/io5";
+import { logo } from "@/utils/themes";
 
 export const restaurant = defineType({
   name: "restaurant",
@@ -223,4 +224,40 @@ export const restaurant = defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      subtitle: "slug.current",
+      active: "isActive",
+    },
+    prepare(selection: any) {
+      return {
+        title: selection.title,
+        subtitle: `${selection.active ? "✅" : "🚫"} - ${selection.subtitle}`,
+        media: (
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {logo({
+              style: {
+                maxWidth: "none",
+                maxHeight: "none",
+                width: "26px",
+                height: "auto",
+                padding: "2px",
+              },
+              color: "black",
+              slug: selection.subtitle,
+            })}
+          </div>
+        ),
+      };
+    },
+  },
 });

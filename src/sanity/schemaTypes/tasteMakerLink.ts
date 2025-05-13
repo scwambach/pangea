@@ -1,24 +1,24 @@
-import { defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const tasteMakerLink = defineType({
   name: "tasteMakerLink",
   title: "Taste Maker Link",
   type: "document",
   fields: [
-    {
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
       rows: 3,
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "image",
@@ -26,8 +26,13 @@ export const tasteMakerLink = defineType({
       options: {
         hotspot: true,
       },
-    },
-    {
+    }),
+    defineField({
+      name: "buttonText",
+      title: "Button Text",
+      type: "string",
+    }),
+    defineField({
       name: "url",
       title: "URL",
       type: "url",
@@ -35,6 +40,6 @@ export const tasteMakerLink = defineType({
         Rule.required().uri({
           allowRelative: true,
         }),
-    },
+    }),
   ],
 });

@@ -13,6 +13,7 @@ export const HOME = `{
     _id,
     description,
     title,
+    buttonText,
     url,
   },
   "mapSelector": *[_type == "globalSettings"][0].locations[] -> {

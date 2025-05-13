@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { richTextProps } from "./protableProps";
+import dayjs from "dayjs";
 
 export const post = defineType({
   name: "post",
@@ -69,4 +70,19 @@ export const post = defineType({
       of: [{ type: "reference", to: [{ type: "category" }] }],
     }),
   ],
+  preview: {
+    select: {
+      title: "title",
+      subtitle: "publishedAt",
+      attachedLocation: "attachedLocation.name",
+      media: "mainImage",
+    },
+    prepare(selection: any) {
+      return {
+        title: selection.title,
+        subtitle: `${dayjs(selection.subtitle).format("MMM D, YY")} for ${selection.attachedLocation}`,
+        media: selection.media,
+      };
+    },
+  },
 });
