@@ -32,14 +32,9 @@ export const Newsletter = ({ socials }: { socials: string[] }) => {
     setMessage(null);
 
     try {
-      const data = await newsletterData(email);
-      if (data.status !== 200) {
-        setMessage("There was a problem. Please try again.");
-        console.error("Failed to subscribe");
-      } else {
-        setMessage("Thanks for signing up!");
-        setEmail("");
-      }
+      await newsletterData(email);
+      setMessage("Thanks for signing up!");
+      setEmail("");
     } catch (err) {
       console.error(err);
       setMessage("There was a problem. Please try again.");
