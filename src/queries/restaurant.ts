@@ -39,7 +39,7 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
     "items": *[_type == "post" && references(^._id) && attachedLocation._ref == ^._id] | order(publishedAt desc)[0...3] {
       _id,
       title,
-      "url": "/" + slug.current,
+      "url": "/blog/" + slug.current,
       description,
       "image": mainImage ${imageQuery},
     }

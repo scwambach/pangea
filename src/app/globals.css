@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 body {
+  font-family: "Montserrat", "Montserrat Fallback";
+
   &::selection {
     background-color: var(--color-pangea-dark);
     color: var(--color-offwhite);

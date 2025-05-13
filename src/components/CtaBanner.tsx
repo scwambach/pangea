@@ -27,32 +27,32 @@ export const CtaBanner = ({
               {
                 block: {
                   h1: ({ children }: { children: string }) => (
-                    <h1 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
+                    <h1 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
                       {children}
                     </h1>
                   ),
                   h2: ({ children }: { children: string }) => (
-                    <h2 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
+                    <h2 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }: { children: string }) => (
-                    <h3 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
+                    <h3 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
                       {children}
                     </h3>
                   ),
                   h4: ({ children }: { children: string }) => (
-                    <h4 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
+                    <h4 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
                       {children}
                     </h4>
                   ),
                   h5: ({ children }: { children: string }) => (
-                    <h5 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
+                    <h5 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
                       {children}
                     </h5>
                   ),
                   h6: ({ children }: { children: string }) => (
-                    <h6 className="text-pretty text-[22px] tablet-md:text-[45px] font-[900] leading-[1.2]">
+                    <h6 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
                       {children}
                     </h6>
                   ),

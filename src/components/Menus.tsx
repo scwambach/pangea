@@ -28,7 +28,7 @@ export const Menus = ({
         className={textTheme(slug)}
         element="h2"
       />
-      <div className="flex flex-col tablet-md:flex-row tablet-md:flex-wrap tablet-md:justify-center tablet-md:items-center w-full tablet-md:max-w-[1000px] tablet-md:mx-auto gap-8">
+      <div className="flex flex-col tablet-md:flex-row tablet-md:flex-wrap tablet-md:justify-center tablet-md:items-center w-full tablet-md:max-w-[1090px] tablet-md:mx-auto gap-8">
         {items?.map((item) => (
           <button
             key={item.name}
@@ -47,7 +47,7 @@ export const Menus = ({
       </div>
 
       {activeMenu && (
-        <div className="text-center flex flex-col gap-4 items-center justify-center w-full max-w-[1000px] mx-auto mt-8">
+        <div className="text-center flex flex-col gap-4 items-center justify-center w-full max-w-[1090px] mx-auto mt-8">
           <p
             className={`menuTitle ${textTheme(slug)} mobile-lg:px-8 bg-white text-center uppercase font-black tracking-widest text-[26px] relative mb-4`}
           >

@@ -31,7 +31,7 @@ export const RestaurantHero = ({
         />
       )}
       <div className="max-w-[1370px] text-center mx-auto relative flex justify-between items-center tablet-lg:px-4">
-        <div className="px-4 py-16 tablet-lg:px-[50px] tablet-lg:py-[90px] relative text-white w-full tablet-lg:max-w-[450px] z-10">
+        <div className="px-4 py-16 tablet-lg:px-[50px] tablet-lg:py-[90px] relative text-white w-full tablet-lg:max-w-[460px] z-10">
           <div
             className={`${bgTheme(slug)} absolute top-0 left-0 w-full h-full opacity-80 tablet-lg:opacity-100`}
           />

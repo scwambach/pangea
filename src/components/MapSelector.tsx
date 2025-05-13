@@ -13,11 +13,11 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
   return (
     <section className="mapSelector bg-black text-white">
       <div className="relative overflow-hidden min-h-[196px] flex flex-col justify-center tablet-md:min-h-[744px] tablet-md:max-w-[1440px] mx-auto">
-        <div className="mapNav px-4 flex flex-col gap-8 pt-[50px] pb-[50px] tablet-md:pb-[100px] tablet-md:pl-[50px] tablet-md:max-w-[366px] relative z-10">
+        <div className="mapNav px-4 flex flex-col gap-8 pt-[50px] pb-[50px] tablet-md:pb-[100px] tablet-md:pl-[50px] tablet-md:max-w-[426px] relative z-10">
           <h1 className="text-[38px] text-pretty text-center tablet-md:text-left leading-[1.3]">
             Bringing the world to your table.
           </h1>
-          <div className="hidden tablet-md:flex flex-col gap-8">
+          <div className="hidden tablet-md:flex flex-col gap-8 tablet-md:max-w-[306px]">
             {items.map((item) => (
               <Link
                 key={item._id}
