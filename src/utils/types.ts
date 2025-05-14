@@ -82,7 +82,7 @@ export interface MapSelectorItemProps {
   mapImage: CustomImageProps;
 }
 
-export interface TasteMakerItemProps extends MediaCardProps {
+export interface MediaCardRowProps extends MediaCardProps {
   _id: string;
 }
 export interface PostItemProps extends MediaCardProps {
@@ -102,7 +102,7 @@ export interface CtaBannerProps {
 
 export interface HomePageProps {
   ctaBanner: CtaBannerProps;
-  tasteMakers: TasteMakerItemProps[];
+  mediaCardRow: MediaCardRowProps[];
   mapSelector: MapSelectorItemProps[];
   restaurantGrid: {
     name: string;

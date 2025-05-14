@@ -14,7 +14,7 @@ export const CtaBanner = ({
     <section className="px-2 tablet-md:px-8 py-[100px] flex flex-col gap-2">
       <SectionHeading title={heading} className="text-pangea" element="h4" />
 
-      <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[830px] mx-auto items-center tablet-md:gap-8 justify-center">
+      <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[1200px] mx-auto items-center tablet-md:gap-8 justify-center">
         <ImageObject
           {...image}
           className="w-full max-w-[250px] mobile-lg:max-w-[200px] tablet-md:max-w-[315px] h-auto"
@@ -27,32 +27,32 @@ export const CtaBanner = ({
               {
                 block: {
                   h1: ({ children }: { children: string }) => (
-                    <h1 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
+                    <h1 className="text-pretty text-[22px] tablet-md:text-[37px] font-[900] leading-[1.2]">
                       {children}
                     </h1>
                   ),
                   h2: ({ children }: { children: string }) => (
-                    <h2 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
+                    <h2 className="text-pretty text-[22px] tablet-md:text-[37px] font-[900] leading-[1.2]">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }: { children: string }) => (
-                    <h3 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
+                    <h3 className="text-pretty text-[22px] tablet-md:text-[37px] font-[900] leading-[1.2]">
                       {children}
                     </h3>
                   ),
                   h4: ({ children }: { children: string }) => (
-                    <h4 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
+                    <h4 className="text-pretty text-[22px] tablet-md:text-[37px] font-[900] leading-[1.2]">
                       {children}
                     </h4>
                   ),
                   h5: ({ children }: { children: string }) => (
-                    <h5 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
+                    <h5 className="text-pretty text-[22px] tablet-md:text-[37px] font-[900] leading-[1.2]">
                       {children}
                     </h5>
                   ),
                   h6: ({ children }: { children: string }) => (
-                    <h6 className="text-pretty text-[22px] tablet-md:text-[40px] font-[900] leading-[1.2]">
+                    <h6 className="text-pretty text-[22px] tablet-md:text-[37px] font-[900] leading-[1.2]">
                       {children}
                     </h6>
                   ),

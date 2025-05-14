@@ -6,9 +6,11 @@ import { MediaCard } from "./modules/MediaCard";
 
 export const RecentPosts = ({
   slug,
+  name,
   items,
 }: {
   slug: string;
+  name: string;
   items: PostItemProps[];
 }) => {
   return (
@@ -24,7 +26,7 @@ export const RecentPosts = ({
       />
       <div className="max-w-[1200px] mx-auto">
         <SectionHeading
-          title="Recent Posts"
+          title={`Explore more from ${name}`}
           className="text-white pb-[50px]"
           element="h3"
         />

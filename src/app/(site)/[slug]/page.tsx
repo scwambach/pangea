@@ -69,7 +69,7 @@ export default async function Page({
       <Menus {...data.menus} />
       <Features {...data.featuresBanner} />
       {data.relatedPosts.items.length > 0 && (
-        <RecentPosts {...data.relatedPosts} />
+        <RecentPosts {...data.relatedPosts} name={data.name} />
       )}
       <CtaBanner {...data.ctaBanner} />
       <Newsletter socials={data.socialLinks} />

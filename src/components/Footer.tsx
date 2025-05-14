@@ -127,7 +127,7 @@ export const Footer = ({
               href="/careers"
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
-              Join Our Team
+              Apply Now
             </Link>
           </FooterBlock>
         </FooterColumn>
@@ -137,7 +137,7 @@ export const Footer = ({
               href="/careers"
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
-              Join Our Team
+              Apply Now
             </Link>
           </FooterBlock>
         </FooterColumn>

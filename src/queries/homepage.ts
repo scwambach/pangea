@@ -8,7 +8,7 @@ export const HOME = `{
       ${richTextProps}
     }
   },
-  "tasteMakers": *[_type == "tasteMakerLink"] {
+  "mediaCardRow": *[_type == "tasteMakerLink"] {
     image ${imageQuery},
     _id,
     description,

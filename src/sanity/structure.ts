@@ -22,8 +22,8 @@ export const structure: StructureResolver = (S) =>
         )
         .icon(TfiPencilAlt),
       S.listItem()
-        .title("Taste Maker Links")
-        .child(S.documentTypeList("tasteMakerLink").title("Taste Maker Links"))
+        .title("Media Cards")
+        .child(S.documentTypeList("tasteMakerLink").title("Media Cards"))
         .icon(FaRegGrinTongue),
       S.listItem()
         .title("Global Info")
