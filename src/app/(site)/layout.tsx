@@ -10,6 +10,7 @@ import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 import { SanityLive } from "@/sanity/lib/live";
+import { PopUpCta } from "@/components/PopUpCta";
 
 const montSans = Montserrat({
   variable: "--font-geist-sans",
@@ -64,6 +65,7 @@ export default async function RootLayout({
         <Header {...data.header} />
         <main>{children}</main>
         <Footer {...data.footer} />
+        {data.popUpCta && <PopUpCta {...data.popUpCta} />}
         <SanityLive />
         {(await draftMode()).isEnabled && (
           <>

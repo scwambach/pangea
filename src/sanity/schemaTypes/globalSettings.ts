@@ -38,6 +38,14 @@ export const globalSettings = defineType({
         collapsed: true,
       },
     },
+    {
+      name: "popUpCta",
+      title: "Pop Up CTA",
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
     defineField({
@@ -158,6 +166,46 @@ export const globalSettings = defineType({
                 }),
               ],
             },
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: "popUpCta",
+      title: "Pop Up CTA",
+      fieldset: "popUpCta",
+      type: "object",
+      fields: [
+        defineField({
+          name: "heading",
+          title: "Heading",
+          type: "string",
+        }),
+        defineField({
+          name: "copy",
+          title: "Copy",
+          type: "text",
+          rows: 3,
+        }),
+        defineField({
+          name: "button",
+          title: "Button",
+          type: "object",
+          fields: [
+            defineField({
+              name: "text",
+              title: "Text",
+              type: "string",
+            }),
+            defineField({
+              name: "href",
+              title: "Href",
+              type: "url",
+              validation: (Rule) =>
+                Rule.uri({
+                  allowRelative: true,
+                }),
+            }),
           ],
         }),
       ],

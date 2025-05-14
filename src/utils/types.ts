@@ -30,6 +30,15 @@ export interface CustomImageProps {
   };
 }
 
+export interface PopUpCtaProps {
+  heading?: string;
+  copy?: string;
+  button?: {
+    text: string;
+    href: string;
+  };
+}
+
 export interface GlobalProps {
   siteTagline: string;
   mainPhone: string;
@@ -38,6 +47,7 @@ export interface GlobalProps {
   siteDescription: string;
   mainEmail: string;
   ogImage: CustomImageProps;
+  popUpCta: PopUpCtaProps;
   ctaBanner: {
     image: CustomImageProps;
     copy: any[];

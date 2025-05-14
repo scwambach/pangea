@@ -32,5 +32,6 @@ export const GLOBAL = `*[_type == "globalSettings"][0] {
       name,
       hours
     }
-  }
+  },
+  popUpCta
 }`;
