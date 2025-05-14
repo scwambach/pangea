@@ -50,8 +50,8 @@ export default async function Blog({
   const totalPages = Math.ceil(data.totalPostCount / itemsPerPage);
 
   return (
-    <div className="px-4 text-center py-32">
-      <h1 className="font-extrabold text-[45px] text-black py-12">
+    <div className="px-4 text-center ">
+      <h1 className="font-extrabold text-[45px] text-black pt-12">
         Sed feugiat, sem ut laoreet.
       </h1>
       <div className="grid grid-cols-1 tablet:grid-cols-2 gap-16 max-w-[1200px] mx-auto my-16">

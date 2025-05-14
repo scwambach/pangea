@@ -44,7 +44,7 @@ export const Newsletter = ({ socials }: { socials: string[] }) => {
   };
 
   return (
-    <section className="relative px-4 tablet-lg:px-8 py-10 tablet-lg:py-[140px] text-center">
+    <section className="relative px-8 tablet-lg:px-8 py-10 tablet-lg:py-[140px] text-center">
       <Image
         src={newsletterBg.src}
         alt=""
@@ -54,9 +54,9 @@ export const Newsletter = ({ socials }: { socials: string[] }) => {
         placeholder="blur"
         blurDataURL={newsletterBg.blurDataURL}
       />
-      <div className="bg-offwhite-translucent tablet-lg:bg-offwhite max-w-[674px] mx-auto px-4 py-[80px] flex justify-center">
+      <div className="bg-offwhite-translucent tablet-lg:bg-offwhite max-w-[674px] mx-auto px-8 py-[80px] flex justify-center">
         <div className="max-w-[460px] flex flex-col gap-8">
-          <h4 className="text-pretty text-[45px] font-extrabold leading-[1.2]">
+          <h4 className="text-pretty text-4xl tablet-lg:text-[45px] font-extrabold leading-[1.2]">
             Stay in the know.
           </h4>
           <p className="text-pretty">

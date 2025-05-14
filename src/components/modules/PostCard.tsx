@@ -30,7 +30,7 @@ export const PostCard = ({
     <Link
       href={`/blog/${slug}`}
       key={_id}
-      className="flex flex-col gap-8 items-center opacity-100 hover:opacity-80 transition-all duration-300"
+      className="flex flex-col gap-10 items-center opacity-100 hover:opacity-80 transition-all duration-300"
     >
       <div className="relative h-[354px] w-full ">
         <ImageObject
@@ -47,11 +47,15 @@ export const PostCard = ({
           })}
         </div>
       </div>
-      <p className="text-pangea text-center uppercase font-black tracking-widest text-[22px]">
-        {title}
-      </p>
-      <p className=" text-pretty leading-[1.3] line-clamp-2">{description}</p>
-      <p className={`${buttonClasses} px-8 bg-black`}>Read more</p>
+      <div className="flex flex-col gap-4 items-center">
+        <p className="text-pangea text-center uppercase font-black tracking-widest text-[22px]">
+          {title}
+        </p>
+        <p className=" text-pretty leading-[1.3] line-clamp-2 max-w-[400px]">
+          {description}
+        </p>
+        <p className={`${buttonClasses} mt-2 px-8 bg-black`}>Read more</p>
+      </div>
     </Link>
   );
 };
