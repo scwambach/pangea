@@ -1,18 +1,17 @@
-import tasteBg from "@/images/tasteBg.png";
-import { MediaCardRowItemProps } from "@/utils/types";
+import mediaRowBg from "@/images/tasteBg.png";
+import { MediaCardRowProps } from "@/utils/types";
 import Image from "next/image";
 import { MediaCard } from "./modules/MediaCard";
-import { SectionHeading } from "./modules/SectionHeading";
 
-export const MediaCardRow = ({ items }: { items: MediaCardRowItemProps[] }) => {
+export const MediaCardRow = ({ items }: { items: MediaCardRowProps[] }) => {
   return (
     <section className="relative px-4 py-[100px]">
       <Image
-        src={tasteBg.src}
-        width={tasteBg.width}
-        height={tasteBg.height}
+        src={mediaRowBg.src}
+        width={mediaRowBg.width}
+        height={mediaRowBg.height}
         placeholder="blur"
-        blurDataURL={tasteBg.blurDataURL}
+        blurDataURL={mediaRowBg.blurDataURL}
         alt=""
         className="absolute top-0 left-0 w-full h-full object-cover -z-10 select-none pointer-events-none"
       />
