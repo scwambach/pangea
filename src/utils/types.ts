@@ -168,6 +168,7 @@ export type MenuItemProps = {
 export type SingleMenuProps = {
   name: string;
   menu?: string;
+  footnote?: string;
   menuSections?: {
     title: string;
     _key: string;

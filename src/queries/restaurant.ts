@@ -18,6 +18,7 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
     "items": menus[] {
       name,
       "menu": menu.asset -> url,
+      footnote,
       menuSections[] {
         title,
         _key,

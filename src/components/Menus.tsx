@@ -120,8 +120,8 @@ export const Menus = ({
       </div>
 
       {activeMenu && (
-        <div className="flex flex-col gap-16">
-          <div className="text-center flex flex-col gap-4 items-center justify-center w-full max-w-[1090px] mx-auto mt-8">
+        <div className="flex flex-col gap-16 max-w-[1090px] w-full mx-auto">
+          <div className="text-center flex flex-col gap-4 items-center justify-center w-full mt-8">
             <p
               className={`menuTitle ${textTheme(slug)} mobile-lg:px-8 bg-white text-center uppercase font-black tracking-widest text-[26px] relative mb-4`}
             >
@@ -130,7 +130,7 @@ export const Menus = ({
             {activeMenu.menu && (
               <ButtonLink
                 href={activeMenu.menu}
-                className="text-white px-10 py-2"
+                className="text-white px-10 py-2 w-full max-w-[300px]"
                 color="bg-black"
                 text="Download Menu"
               />
@@ -138,7 +138,7 @@ export const Menus = ({
             {fullMenu && (
               <ButtonLink
                 href={fullMenu}
-                className="text-white px-10 py-2"
+                className="text-white px-10 py-2 w-full max-w-[300px]"
                 color="bg-black"
                 text="Download Full Menu"
               />
@@ -153,6 +153,11 @@ export const Menus = ({
                       {section.title}
                     </p>
                   )}
+                  {section.description && (
+                    <p className="opacity-80 max-w-[500px] mb-4 text-[14px] mx-auto text-center">
+                      {section.description}
+                    </p>
+                  )}
                   {section.items && (
                     <div className="flex flex-col gap-10">
                       {section.items.map((item) => (
@@ -164,6 +169,9 @@ export const Menus = ({
               ))}
             </div>
           )}
+          <p className="opacity-40 max-w-[500px] text-[14px] mx-auto text-center">
+            {activeMenu.footnote}
+          </p>
         </div>
       )}
     </section>

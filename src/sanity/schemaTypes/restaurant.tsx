@@ -3,6 +3,7 @@ import { richTextProps } from "./protableProps";
 import { IoRestaurantOutline } from "react-icons/io5";
 import { logo } from "@/utils/themes";
 import { MdOutlineMenuBook } from "react-icons/md";
+import { FaBowlFood } from "react-icons/fa6";
 
 export const restaurant = defineType({
   name: "restaurant",
@@ -238,7 +239,7 @@ export const restaurant = defineType({
                               return {
                                 title: selection.title,
                                 subtitle: `${selection.price} - ${selection.subtitle}`,
-                                media: selection.image,
+                                media: selection.image || FaBowlFood,
                               };
                             },
                           },
