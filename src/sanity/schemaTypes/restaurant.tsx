@@ -203,6 +203,12 @@ export const restaurant = defineType({
                               initialValue: false,
                             }),
                             defineField({
+                              name: "isGlutenFree",
+                              title: "Is gluten free",
+                              type: "boolean",
+                              initialValue: false,
+                            }),
+                            defineField({
                               name: "canBeVegetarian",
                               title: "Can be vegetarian",
                               type: "boolean",
@@ -211,6 +217,12 @@ export const restaurant = defineType({
                             defineField({
                               name: "canBeVegan",
                               title: "Can be vegan",
+                              type: "boolean",
+                              initialValue: false,
+                            }),
+                            defineField({
+                              name: "canBeGlutenFree",
+                              title: "Can be gluten free",
                               type: "boolean",
                               initialValue: false,
                             }),

@@ -151,6 +151,31 @@ export type FeatureBannerProps = {
   email: string;
 };
 
+export type MenuItemProps = {
+  _key: string;
+  name: string;
+  price: number;
+  description: any[];
+  image: CustomImageProps;
+  isVegetarian?: boolean;
+  isVegan?: boolean;
+  isGlutenFree?: boolean;
+  canBeVegetarian?: boolean;
+  canBeVegan?: boolean;
+  canBeGlutenFree?: boolean;
+};
+
+export type SingleMenuProps = {
+  name: string;
+  menu?: string;
+  menuSections?: {
+    title: string;
+    _key: string;
+    description: string;
+    items: MenuItemProps[];
+  }[];
+};
+
 export type RestaurantProps = {
   name: string;
   isActive?: boolean;
@@ -164,26 +189,7 @@ export type RestaurantProps = {
   fullMenu?: string;
   menus: {
     slug: string;
-    items: {
-      name: string;
-      menu?: string;
-      menuSections?: {
-        title: string;
-        _key: string;
-        description: string;
-        items: {
-          _key: string;
-          name: string;
-          price: number;
-          description: any[];
-          image: CustomImageProps;
-          isVegetarian?: boolean;
-          isVegan?: boolean;
-          canBeVegetarian?: boolean;
-          canBeVegan?: boolean;
-        }[];
-      }[];
-    }[];
+    items: SingleMenuProps[];
   };
   featuresBanner: FeatureBannerProps;
   gallery: CustomImageProps[];

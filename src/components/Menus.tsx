@@ -3,27 +3,96 @@ import { useState } from "react";
 import { SectionHeading } from "./modules/SectionHeading";
 import { ButtonLink } from "./modules/ButtonLink";
 import { textTheme } from "@/utils/themes";
+import { MenuItemProps, SingleMenuProps } from "@/utils/types";
+import { FaCameraRetro } from "react-icons/fa";
+import { ImageObject } from "./modules/ImageObject";
+import { LuVegan } from "react-icons/lu";
+import { PiPlant } from "react-icons/pi";
+import { TbWheat } from "react-icons/tb";
+
+const MenuItem = (item: MenuItemProps) => {
+  const [openImage, setOpenImage] = useState(false);
+  return (
+    <div key={item._key} className="flex flex-col gap-4">
+      <div>
+        <div className="flex justify-between items-start gap-4">
+          {item.name && (
+            <p className="font-bold flex gap-4">
+              {item.name}
+              {item.image && (
+                <button
+                  className="cursor-pointer"
+                  onClick={() => setOpenImage(!openImage)}
+                >
+                  <FaCameraRetro
+                    color={openImage ? "var(--color-paprika)" : undefined}
+                  />
+                </button>
+              )}
+            </p>
+          )}
+          {item.price && <p>{item.price}</p>}
+        </div>
+        {item.description && <p>{item.description}</p>}
+        <div className="flex flex-wrap mt-2">
+          {item.isVegetarian && (
+            <span className="flex items-center gap-2 mr-4">
+              <PiPlant size={24} />
+              is vegetarian
+            </span>
+          )}
+          {item.isVegan && (
+            <span className="flex items-center gap-2 mr-4">
+              <LuVegan size={18} />
+              is vegan
+            </span>
+          )}
+          {item.isGlutenFree && (
+            <span className="flex items-center gap-2 mr-4">
+              <TbWheat size={18} />
+              is gluten free
+            </span>
+          )}
+          {item.canBeVegetarian && (
+            <span className="flex items-center gap-2 mr-4">
+              <PiPlant size={24} color="var(--color-pangea)" />
+              can be made vegetarian
+            </span>
+          )}
+          {item.canBeVegan && (
+            <span className="flex items-center gap-2 mr-4">
+              <LuVegan size={18} color="var(--color-pangea)" />
+              can be made vegan
+            </span>
+          )}
+          {item.canBeGlutenFree && (
+            <span className="flex items-center gap-2 mr-4">
+              <TbWheat size={18} color="var(--color-pangea)" />
+              can be made gluten free
+            </span>
+          )}
+        </div>
+      </div>
+      {item.image && openImage && (
+        <div className="max-w-[600px]">
+          <ImageObject {...item.image} className="w-full h-auto" />
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const Menus = ({
   items,
+  fullMenu,
   slug,
 }: {
   slug: string;
-  items: {
-    name: string;
-    menu?: string;
-  }[];
+  fullMenu?: string;
+  items: SingleMenuProps[];
 }) => {
-  const [activeMenu, setActiveMenu] = useState<
-    | {
-        name: string;
-        menu: string;
-      }
-    | undefined
-  >(
-    items && items[0] && items[0].menu
-      ? { name: items[0].name, menu: items[0].menu }
-      : undefined
+  const [activeMenu, setActiveMenu] = useState<SingleMenuProps | undefined>(
+    items && items[0] && items[0].menu ? items[0] : undefined
   );
   return (
     <section className="flex flex-col gap-8 py-[100px] px-4 tablet-md:px-8">
@@ -41,7 +110,7 @@ export const Menus = ({
             }`}
             onClick={() => {
               if (activeMenu?.name !== item.name && item.menu) {
-                setActiveMenu({ name: item.name, menu: item.menu });
+                setActiveMenu(item);
               }
             }}
           >
@@ -51,18 +120,50 @@ export const Menus = ({
       </div>
 
       {activeMenu && (
-        <div className="text-center flex flex-col gap-4 items-center justify-center w-full max-w-[1090px] mx-auto mt-8">
-          <p
-            className={`menuTitle ${textTheme(slug)} mobile-lg:px-8 bg-white text-center uppercase font-black tracking-widest text-[26px] relative mb-4`}
-          >
-            {activeMenu.name}
-          </p>
-          <ButtonLink
-            href={activeMenu.menu}
-            className="text-white px-10 py-2"
-            color="bg-black"
-            text="Download Menu"
-          />
+        <div className="flex flex-col gap-16">
+          <div className="text-center flex flex-col gap-4 items-center justify-center w-full max-w-[1090px] mx-auto mt-8">
+            <p
+              className={`menuTitle ${textTheme(slug)} mobile-lg:px-8 bg-white text-center uppercase font-black tracking-widest text-[26px] relative mb-4`}
+            >
+              {activeMenu.name}
+            </p>
+            {activeMenu.menu && (
+              <ButtonLink
+                href={activeMenu.menu}
+                className="text-white px-10 py-2"
+                color="bg-black"
+                text="Download Menu"
+              />
+            )}
+            {fullMenu && (
+              <ButtonLink
+                href={fullMenu}
+                className="text-white px-10 py-2"
+                color="bg-black"
+                text="Download Full Menu"
+              />
+            )}
+          </div>
+          {activeMenu.menuSections && (
+            <div className="w-full max-w-[800px] mx-auto flex flex-col gap-16">
+              {activeMenu.menuSections.map((section) => (
+                <div key={section._key} className="flex flex-col gap-4">
+                  {section.title && (
+                    <p className="font-extrabold text-xl uppercase tracking-widest text-center">
+                      {section.title}
+                    </p>
+                  )}
+                  {section.items && (
+                    <div className="flex flex-col gap-10">
+                      {section.items.map((item) => (
+                        <MenuItem key={item._key} {...item} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </section>
