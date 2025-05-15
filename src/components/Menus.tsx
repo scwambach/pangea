@@ -11,7 +11,7 @@ export const Menus = ({
   slug: string;
   items: {
     name: string;
-    menu: string;
+    menu?: string;
   }[];
 }) => {
   const [activeMenu, setActiveMenu] = useState<
@@ -20,7 +20,11 @@ export const Menus = ({
         menu: string;
       }
     | undefined
-  >(items ? items[0] : undefined);
+  >(
+    items && items[0] && items[0].menu
+      ? { name: items[0].name, menu: items[0].menu }
+      : undefined
+  );
   return (
     <section className="flex flex-col gap-8 py-[100px] px-4 tablet-md:px-8">
       <SectionHeading
@@ -36,8 +40,8 @@ export const Menus = ({
               activeMenu?.name === item.name ? " activeMenu" : ""
             }`}
             onClick={() => {
-              if (activeMenu?.name !== item.name) {
-                setActiveMenu(item);
+              if (activeMenu?.name !== item.name && item.menu) {
+                setActiveMenu({ name: item.name, menu: item.menu });
               }
             }}
           >

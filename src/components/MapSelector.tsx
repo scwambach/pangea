@@ -1,7 +1,6 @@
 "use client";
 import { decorationTheme, logo } from "@/utils/themes";
 import { MapSelectorItemProps } from "@/utils/types";
-import Link from "next/link";
 import { useState } from "react";
 import { ImageObject } from "./modules/ImageObject";
 import defaultMap from "@/images/defaultMap.png";
@@ -21,13 +20,10 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
           </h1>
           <div className="hidden tablet-md:flex flex-col gap-8 tablet-md:max-w-[306px]">
             {items.map((item) => (
-              <Link
+              <span
                 key={item._id}
-                href={item.isActive ? `/${item.slug}` : item.externalUrl || "#"}
-                target={item.isActive ? "_self" : "_blank"}
-                rel={item.isActive ? undefined : "noopener noreferrer"}
                 onMouseOver={() => setActiveLocation(item)}
-                className={`flex items-center font-extrabold tracking-wide uppercase text-lg cursor-pointer relative z-10 justify-start gap-8 border-b-[1px] pb-8 border-tan${activeLocation.slug === item.slug ? " active" : ""}`}
+                className={`item cursor-help flex items-center font-extrabold tracking-wide uppercase text-lg relative z-10 justify-start gap-8 border-b-[1px] pb-8 border-tan${activeLocation.slug === item.slug ? " active" : ""}`}
               >
                 {logo({
                   slug: item.slug,
@@ -35,7 +31,7 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
                   className: "h-[87px] w-auto",
                 })}
                 <span className={decorationTheme(item.slug)}>{item.name}</span>
-              </Link>
+              </span>
             ))}
           </div>
         </div>

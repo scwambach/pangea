@@ -2,6 +2,7 @@ import { defineField, defineType } from "sanity";
 import { richTextProps } from "./protableProps";
 import { IoRestaurantOutline } from "react-icons/io5";
 import { logo } from "@/utils/themes";
+import { MdOutlineMenuBook } from "react-icons/md";
 
 export const restaurant = defineType({
   name: "restaurant",
@@ -99,6 +100,15 @@ export const restaurant = defineType({
       type: "url",
     }),
     defineField({
+      name: "fullMenu",
+      title: "PDF Full Menu",
+      description: "Upload a PDF menu of all menus sections in one file.",
+      type: "file",
+      options: {
+        accept: ".pdf",
+      },
+    }),
+    defineField({
       name: "menus",
       title: "Menus",
       type: "array",
@@ -114,9 +124,138 @@ export const restaurant = defineType({
             }),
             defineField({
               name: "menu",
-              title: "Menu",
+              title: "PDF Menu",
+              description: "Upload a PDF menu of just this menu section.",
               type: "file",
-              validation: (Rule) => Rule.required(),
+              options: {
+                accept: ".pdf",
+              },
+            }),
+            defineField({
+              name: "menuSections",
+              title: "Menu Sections",
+              type: "array",
+              of: [
+                defineField({
+                  name: "section",
+                  title: "Section",
+                  type: "object",
+                  fields: [
+                    defineField({
+                      name: "title",
+                      title: "Title",
+                      type: "string",
+                      validation: (Rule: any) => Rule.required(),
+                    }),
+                    defineField({
+                      name: "description",
+                      title: "Description",
+                      type: "text",
+                      rows: 3,
+                    }),
+
+                    defineField({
+                      name: "items",
+                      title: "Items",
+                      type: "array",
+                      of: [
+                        defineField({
+                          name: "item",
+                          title: "Item",
+                          type: "object",
+                          fields: [
+                            defineField({
+                              name: "name",
+                              title: "Name",
+                              type: "string",
+                              validation: (Rule: any) => Rule.required(),
+                            }),
+                            defineField({
+                              name: "description",
+                              title: "Description",
+                              type: "string",
+                              validation: (Rule: any) => Rule.required(),
+                            }),
+                            defineField({
+                              name: "price",
+                              title: "Price",
+                              type: "string",
+                              validation: (Rule: any) => Rule.required(),
+                            }),
+                            defineField({
+                              name: "image",
+                              title: "Image",
+                              type: "image",
+                              options: {
+                                hotspot: true,
+                              },
+                            }),
+                            defineField({
+                              name: "isVegetarian",
+                              title: "Is Vegetarian",
+                              type: "boolean",
+                              initialValue: false,
+                            }),
+                            defineField({
+                              name: "isVegan",
+                              title: "Is Vegan",
+                              type: "boolean",
+                              initialValue: false,
+                            }),
+                            defineField({
+                              name: "canBeVegetarian",
+                              title: "Can be vegetarian",
+                              type: "boolean",
+                              initialValue: false,
+                            }),
+                            defineField({
+                              name: "canBeVegan",
+                              title: "Can be vegan",
+                              type: "boolean",
+                              initialValue: false,
+                            }),
+                          ],
+                          preview: {
+                            select: {
+                              title: "name",
+                              subtitle: "description",
+                              price: "price",
+                              image: "image",
+                            },
+                            prepare(selection: any) {
+                              return {
+                                title: selection.title,
+                                subtitle: `${selection.price} - ${selection.subtitle}`,
+                                media: selection.image,
+                              };
+                            },
+                          },
+                        }),
+                      ],
+                    }),
+                  ],
+                  preview: {
+                    select: {
+                      title: "title",
+                      subtitle: "items",
+                    },
+                    prepare(selection: any) {
+                      return {
+                        title: selection.title,
+                        subtitle: `${selection.subtitle.length} items`,
+                        media: MdOutlineMenuBook,
+                      };
+                    },
+                  },
+                }),
+              ],
+            }),
+            defineField({
+              name: "footnote",
+              title: "Footnote",
+              type: "text",
+              rows: 3,
+              description: "This will be displayed at the bottom of the menu.",
             }),
           ],
         },

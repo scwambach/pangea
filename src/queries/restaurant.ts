@@ -12,11 +12,28 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
     },
     "orderOnlineLink": orderOnlineLink
   },
+  "fullMenu": fullMenu.asset -> url,
   "menus": {
     "slug": slug.current,
-    "items":   menus[] {
+    "items": menus[] {
       name,
-      "menu": menu.asset -> url
+      "menu": menu.asset -> url,
+      menuSections[] {
+        title,
+        _key,
+        description,
+        items[] {
+          _key,
+          name,
+          price,
+          description,
+          image ${imageQuery},
+          isVegetarian,
+          isVegan,
+          canBeVegetarian,
+          canBeVegan,
+        }
+      }
     }
   },
   "featuresBanner": {

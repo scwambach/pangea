@@ -46,7 +46,7 @@ body {
 }
 
 .mapSelector {
-  a {
+  .item {
     &.active,
     &:hover {
       span {

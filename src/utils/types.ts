@@ -161,11 +161,28 @@ export type RestaurantProps = {
     copy: any[];
     orderOnlineLink: string;
   };
+  fullMenu?: string;
   menus: {
     slug: string;
     items: {
       name: string;
-      menu: string;
+      menu?: string;
+      menuSections?: {
+        title: string;
+        _key: string;
+        description: string;
+        items: {
+          _key: string;
+          name: string;
+          price: number;
+          description: any[];
+          image: CustomImageProps;
+          isVegetarian?: boolean;
+          isVegan?: boolean;
+          canBeVegetarian?: boolean;
+          canBeVegan?: boolean;
+        }[];
+      }[];
     }[];
   };
   featuresBanner: FeatureBannerProps;
