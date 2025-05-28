@@ -108,7 +108,7 @@ export const Header = ({
                 color: "#2d291f",
                 className: "h-[51px] w-auto",
               })}
-              {item.href}
+              {item.text}
             </Link>
           ))}
         </nav>
