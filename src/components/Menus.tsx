@@ -146,6 +146,10 @@ export const Menus = ({
           </div>
           {activeMenu.menuSections && (
             <div className="w-full max-w-[800px] mx-auto flex flex-col gap-16">
+              <p>
+                <FaCameraRetro className="inline-block" /> = Click this to view
+                an image of the item.
+              </p>
               {activeMenu.menuSections.map((section) => (
                 <div key={section._key} className="flex flex-col gap-4">
                   {section.title && (

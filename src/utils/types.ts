@@ -108,6 +108,7 @@ export interface HomePageProps {
     name: string;
     flavorsFrom: any[];
     orderOnlineLink: string;
+    address?: Address;
     slug: string;
   }[];
   gallery: CustomImageProps[];

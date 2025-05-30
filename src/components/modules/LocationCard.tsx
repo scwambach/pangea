@@ -1,5 +1,6 @@
 import { bgTheme, logo, textTheme } from "@/utils/themes";
 import { ButtonLink } from "./ButtonLink";
+import { Address } from "@/utils/types";
 
 export const LocationCard = ({
   name,
@@ -7,10 +8,12 @@ export const LocationCard = ({
   isActive = true,
   externalUrl,
   flavorsFrom,
+  address,
   orderOnlineLink,
 }: {
   name: string;
   slug: string;
+  address?: Address;
   isActive?: boolean;
   externalUrl?: string;
   flavorsFrom: string[];
@@ -19,10 +22,10 @@ export const LocationCard = ({
   return (
     <div
       key={slug}
-      className="text-center bg-offwhite relative top-[72.5px] mb-[30px] tablet:mb-[60px] tablet:max-w-[300px] sm:max-w-none mx-auto w-full flex items-stretch flex-col mobile-lg:flex-row tablet:flex-col"
+      className="text-center  bg-offwhite relative top-[72.5px] mb-[30px] tablet:mb-[60px] tablet:max-w-[300px] sm:max-w-none mx-auto w-full flex items-center mobile-lg:items-stretch tablet:items-center flex-col mobile-lg:flex-row tablet:flex-col"
     >
       <div
-        className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 tablet:px-7 w-full mobile-lg:max-w-[170px] tablet:max-w-none tablet:min-h-[145px] flex flex-col justify-between`}
+        className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 tablet:px-7 w-full mobile-lg:max-w-[170px] tablet:max-w-none tablet:min-h-[160px] flex flex-col justify-between`}
       >
         <div className="flex justify-center items-center relative h-[120px] w-[120px] bg-white rounded-full mx-auto shadow-icon -mb-[15px] tablet:-mb-[60px] -top-[30px] tablet:-top-[60px]">
           {logo({
@@ -30,11 +33,36 @@ export const LocationCard = ({
             className: "h-[87px] mx-auto w-auto",
           })}
         </div>
-        <p className="text-xl font-black tracking-wider text-white uppercase">
+        <p className="tablet:text-xl font-black tracking-wider text-white uppercase">
           {name}
         </p>
       </div>
-      <div className="tablet:py-[30px] py-4 mobile-lg:py-0 flex flex-col h-full justify-center tablet:justify-between gap-4 tablet:gap-10 w-full">
+
+      {address && (
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${address.street},${address.cityStateZip}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black text-[13px] mt-4 inline-block mobile-lg:hidden tablet:inline-block cursor-pointer hover:underline"
+        >
+          {address.street}
+          <span className="tablet:block inline-block w-1" />
+          {address.cityStateZip}
+        </a>
+      )}
+      <div className="tablet:py-[30px] py-4 mobile-lg:py-4 flex flex-col h-full justify-center tablet:justify-between gap-4 tablet:gap- w-full">
+        {address && (
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${address.street},${address.cityStateZip}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-black text-[13px] mt-4 hidden mobile-lg:inline-block tablet:hidden cursor-pointer hover:underline"
+          >
+            {address.street}
+            <span className="tablet:block inline-block w-1" />
+            {address.cityStateZip}
+          </a>
+        )}
         {flavorsFrom && (
           <div className="px-[16px] tablet:max-w-none mx-auto">
             <p className={`${textTheme(slug)} uppercase font-bold`}>
@@ -45,7 +73,7 @@ export const LocationCard = ({
         )}
 
         <div className="flex tablet:flex-col gap-2 px-4 tablet:px-[30px]">
-          <span className="hidden tablet:block">
+          <span className="w-full hidden tablet:block">
             <ButtonLink
               href={isActive ? `${slug}#menu` : externalUrl || "#"}
               color={bgTheme(slug)}
@@ -53,7 +81,7 @@ export const LocationCard = ({
               className="px-4 text-[16px] w-full"
             />
           </span>
-          <span className="tablet:hidden w-full">
+          <span className="w-full tablet:hidden">
             <ButtonLink
               href={isActive ? `${slug}#menu` : externalUrl || "#"}
               color={bgTheme(slug)}
@@ -63,7 +91,7 @@ export const LocationCard = ({
           </span>
 
           {orderOnlineLink && (
-            <span className="hidden tablet:block">
+            <span className="w-full hidden tablet:block">
               <ButtonLink
                 href={orderOnlineLink}
                 color={bgTheme(slug)}
@@ -73,7 +101,7 @@ export const LocationCard = ({
             </span>
           )}
           {orderOnlineLink && (
-            <span className="tablet:hidden w-full">
+            <span className="w-full tablet:hidden">
               <ButtonLink
                 href={orderOnlineLink}
                 color={bgTheme(slug)}

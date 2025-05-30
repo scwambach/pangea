@@ -109,9 +109,9 @@ export const Footer = ({
                   <div key={index} className="flex flex-col gap-2">
                     {hour.hours?.map((item) => (
                       <div key={item._key}>
-                        {item.title}
+                        <span className="text-pretty block">{item.title}</span>
                         <div className="flex flex-col gap-1">
-                          {item.days.map((day, index) => (
+                          {item.days?.map((day, index) => (
                             <p key={index}>{day}</p>
                           ))}
                         </div>

@@ -31,6 +31,7 @@ export const HOME = `{
     isActive,
     externalUrl,
     flavorsFrom,
+    address,
     orderOnlineLink
   },
   "gallery": *[_type == "globalSettings"][0].locations[] -> imageGallery[0] ${imageQuery},
