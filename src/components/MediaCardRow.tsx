@@ -18,7 +18,7 @@ export const MediaCardRow = ({ items }: { items: MediaCardRowProps[] }) => {
       <div className="max-w-[1200px] mx-auto">
         <div className="grid tablet:grid-cols-2 tablet:text-center tablet-xl:grid-cols-3 gap-8 desktop-lg:gap-[60px]">
           {items.map((item) => (
-            <MediaCard key={item._id} {...item} />
+            <MediaCard key={item._key} {...item} />
           ))}
         </div>
       </div>

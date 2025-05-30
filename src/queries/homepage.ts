@@ -1,30 +1,33 @@
 import { imageQuery, richTextProps } from "./common";
 
 export const HOME = `{
-  "ctaBanner": *[_type == "globalSettings"][0].ctaBanner {
+  "ctaBanner": *[_type == "homePage"][0].ctaBanner {
     ...,
     image ${imageQuery},
     copy[] {
       ${richTextProps}
     }
   },
-  "mediaCardRow": *[_type == "tasteMakerLink"] {
+  "mediaCardRow": *[_type == "homePage"][0].mediaCards[] {
     image ${imageQuery},
-    _id,
+    _key,
     description,
     title,
     buttonText,
     url,
   },
-  "mapSelector": *[_type == "globalSettings"][0].locations[] -> {
-    _id,
-    name,
-    "slug": slug.current,
-    isActive,
-    externalUrl,
-    mapImage ${imageQuery},
+  "mapSelector": *[_type == "homePage"][0].locationGrid {
+    "heading": *[_type == "homePage"][0].heroBannerHeading,
+    "items": locations[] -> {
+      _id,
+      name,
+      "slug": slug.current,
+      isActive,
+      externalUrl,
+      mapImage ${imageQuery},
+    },
   },
-  "restaurantGrid": *[_type == "globalSettings"][0].locations[] -> {
+  "restaurantGrid": *[_type == "homePage"][0].locationGrid.locations[] -> {
     _id,
     name,
     "slug": slug.current,
@@ -34,5 +37,5 @@ export const HOME = `{
     address,
     orderOnlineLink
   },
-  "gallery": *[_type == "globalSettings"][0].locations[] -> imageGallery[0] ${imageQuery},
+  "gallery": *[_type == "homePage"][0].imageGallery[] ${imageQuery},
 }`;

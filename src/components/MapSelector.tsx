@@ -6,7 +6,13 @@ import { ImageObject } from "./modules/ImageObject";
 import defaultMap from "@/images/defaultMap.png";
 import Image from "next/image";
 
-export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
+export const MapSelector = ({
+  heading,
+  items,
+}: {
+  heading: string;
+  items: MapSelectorItemProps[];
+}) => {
   const [activeLocation, setActiveLocation] = useState<MapSelectorItemProps>(
     items[0]
   );
@@ -16,7 +22,7 @@ export const MapSelector = ({ items }: { items: MapSelectorItemProps[] }) => {
       <div className="relative overflow-hidden min-h-[196px] flex flex-col justify-center tablet-md:min-h-[744px] tablet-md:max-w-[1440px] mx-auto">
         <div className="mapNav px-4 flex flex-col gap-8 pt-[50px] pb-[50px] tablet-md:pb-[100px] tablet-md:pl-[50px] tablet-md:max-w-[506px] relative z-10">
           <h1 className="text-[32px] tablet-md:max-w-[306px] text-pretty text-center tablet-md:text-left leading-[1.3]">
-            Bringing the world to your table.
+            {heading}
           </h1>
           <div className="hidden tablet-md:flex flex-col gap-8">
             {items.map((item) => (

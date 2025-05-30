@@ -1,5 +1,5 @@
 import { AiOutlineGlobal } from "react-icons/ai";
-import { IoRestaurantOutline } from "react-icons/io5";
+import { IoHomeOutline, IoRestaurantOutline } from "react-icons/io5";
 import type { StructureResolver } from "sanity/structure";
 import { FaRegGrinTongue } from "react-icons/fa";
 import { TfiPencilAlt } from "react-icons/tfi";
@@ -25,6 +25,10 @@ export const structure: StructureResolver = (S) =>
         .title("Media Cards")
         .child(S.documentTypeList("tasteMakerLink").title("Media Cards"))
         .icon(FaRegGrinTongue),
+      S.listItem()
+        .title("Home Page")
+        .child(S.document().schemaType("homePage").documentId("homePage"))
+        .icon(IoHomeOutline),
       S.listItem()
         .title("Global Info")
         .child(

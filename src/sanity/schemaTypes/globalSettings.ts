@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { richTextProps } from "./protableProps";
 
 export const globalSettings = defineType({
   name: "globalSettings",
@@ -17,22 +16,6 @@ export const globalSettings = defineType({
     {
       name: "homepage",
       title: "Homepage ",
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-    {
-      name: "ctaBanner",
-      title: "CTA Banner",
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-    {
-      name: "locationHeirarchy",
-      title: "Location Heirarchy",
       options: {
         collapsible: true,
         collapsed: true,
@@ -102,73 +85,6 @@ export const globalSettings = defineType({
       fieldset: "global",
       type: "string",
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "locations",
-      title: "Locations",
-      fieldset: "locationHeirarchy",
-      validation: (Rule: any) => Rule.required(),
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "restaurant" }],
-        },
-      ],
-    }),
-    defineField({
-      name: "ctaBanner",
-      title: "CTA Banner",
-      fieldset: "ctaBanner",
-      type: "object",
-      fields: [
-        defineField({
-          name: "image",
-          title: "Image",
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-        }),
-        defineField({
-          name: "heading",
-          title: "Heading",
-          type: "string",
-          validation: (Rule: any) => Rule.required(),
-        }),
-        defineField({
-          name: "copy",
-          title: "Copy",
-          type: "array",
-          of: richTextProps(),
-        }),
-        defineField({
-          name: "buttons",
-          title: "Buttons",
-          type: "array",
-          of: [
-            {
-              type: "object",
-              fields: [
-                defineField({
-                  name: "text",
-                  title: "Text",
-                  type: "string",
-                }),
-                defineField({
-                  name: "href",
-                  title: "Href",
-                  type: "url",
-                  validation: (Rule: any) =>
-                    Rule.required().uri({
-                      allowRelative: true,
-                    }),
-                }),
-              ],
-            },
-          ],
-        }),
-      ],
     }),
     defineField({
       name: "popUpCta",

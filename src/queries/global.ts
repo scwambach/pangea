@@ -9,7 +9,7 @@ export const GLOBAL = `*[_type == "globalSettings"][0] {
   ogImage ${imageQuery},
   siteTagline,
   "header": {
-    "items": *[_type == "globalSettings"][0].locations[] -> {
+    "items": *[_type == "homePage"][0].locationGrid.locations[] -> {
       "_key": _id,
       "text": name,
       "href": slug.current,
@@ -21,13 +21,13 @@ export const GLOBAL = `*[_type == "globalSettings"][0] {
   "footer": {
     "email": mainEmail,
     "phone": mainPhone,
-    "socials": *[_type == "globalSettings"][0].locations[] -> socialLinks[],
-    "addresses": *[_type == "globalSettings"][0].locations[] -> {
+    "socials": *[_type == "homePage"][0].locationGrid.locations[] -> socialLinks[],
+    "addresses": *[_type == "homePage"][0].locationGrid.locations[] -> {
       "_key": _id,
       name,
       address
     },
-    "hours": *[_type == "globalSettings"][0].locations[] -> {
+    "hours": *[_type == "homePage"][0].locationGrid.locations[] -> {
       "_key": _id,
       name,
       hours

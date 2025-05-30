@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <MapSelector items={data.mapSelector} />
+      <MapSelector {...data.mapSelector} />
       <RestaurantGrid items={data.restaurantGrid} />
       <MediaCardRow items={data.mediaCardRow} />
       <CtaBanner {...data.ctaBanner} />
