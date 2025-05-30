@@ -47,7 +47,7 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
     },
     "email": *[_type == "globalSettings"][0].mainEmail,
   },
-  "ctaBanner": *[_type == "globalSettings"][0].ctaBanner {
+  "ctaBanner": *[_type == "homePage"][0].ctaBanner {
     ...,
     image ${imageQuery},
     copy[] {
