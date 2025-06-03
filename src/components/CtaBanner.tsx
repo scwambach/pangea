@@ -12,7 +12,11 @@ export const CtaBanner = ({
 }: CtaBannerProps) => {
   return (
     <section className="px-2 tablet-md:px-8 py-[100px] flex flex-col gap-2">
-      <SectionHeading title={heading} className="text-pangea" element="h4" />
+      <SectionHeading
+        title={heading}
+        className="text-pangea pb-[25px] tablet:pb-[50px]"
+        element="h4"
+      />
 
       <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[1200px] mx-auto items-center tablet-md:gap-8 justify-center">
         <ImageObject

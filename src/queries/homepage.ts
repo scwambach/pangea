@@ -38,4 +38,7 @@ export const HOME = `{
     orderOnlineLink
   },
   "gallery": *[_type == "homePage"][0].imageGallery[] ${imageQuery},
+  "reviews": *[_type == "homePage"][0].reviews {
+    ...,
+  }
 }`;

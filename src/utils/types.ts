@@ -100,6 +100,19 @@ export interface CtaBannerProps {
   }[];
 }
 
+export interface ReviewItemProps {
+  _key: string;
+  author: string;
+  link: string;
+  rating: number;
+  text: string;
+}
+
+export interface ReviewsProps {
+  heading?: string;
+  reviews: ReviewItemProps[];
+}
+
 export interface HomePageProps {
   ctaBanner: CtaBannerProps;
   mediaCardRow: MediaCardRowProps[];
@@ -115,6 +128,7 @@ export interface HomePageProps {
     slug: string;
   }[];
   gallery: CustomImageProps[];
+  reviews: ReviewsProps;
 }
 
 export type Address = {

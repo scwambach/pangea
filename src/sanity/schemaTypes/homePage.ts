@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { richTextProps } from "./protableProps";
+import { FaStar } from "react-icons/fa6";
 
 export const homePage = defineType({
   name: "homePage",
@@ -150,6 +151,71 @@ export const homePage = defineType({
             hotspot: true,
           },
         },
+      ],
+    }),
+    defineField({
+      name: "reviews",
+      title: "Reviews",
+      type: "object",
+      fields: [
+        defineField({
+          name: "heading",
+          title: "Heading",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "reviews",
+          title: "Reviews",
+          type: "array",
+          validation: (Rule) => Rule.required().min(3).max(6),
+          of: [
+            {
+              type: "object",
+              fields: [
+                defineField({
+                  name: "author",
+                  title: "Author",
+                  type: "string",
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: "text",
+                  title: "Text",
+                  type: "text",
+                  rows: 3,
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: "rating",
+                  title: "Rating",
+                  type: "number",
+                  validation: (Rule) => Rule.required().min(1).max(5),
+                }),
+                defineField({
+                  name: "link",
+                  title: "Link",
+                  type: "url",
+                  validation: (Rule: any) =>
+                    Rule.uri({
+                      allowRelative: true,
+                    }).required(),
+                }),
+              ],
+              preview: {
+                select: {
+                  title: "author",
+                },
+                prepare(selection: any) {
+                  return {
+                    title: selection.title,
+                    media: FaStar,
+                  };
+                },
+              },
+            },
+          ],
+        }),
       ],
     }),
   ],

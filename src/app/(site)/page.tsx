@@ -6,6 +6,7 @@ import { MediaCardRow } from "@/components/MediaCardRow";
 import { HOME } from "@/queries/homepage";
 import { getLiveData } from "@/utils/pageData";
 import { HomePageProps } from "@/utils/types";
+import { Reviews } from "@/components/Reviews";
 
 export default async function Home() {
   const {
@@ -27,6 +28,7 @@ export default async function Home() {
       <MediaCardRow items={data.mediaCardRow} />
       <CtaBanner {...data.ctaBanner} />
       <ImageGrid items={data.gallery} />
+      <Reviews {...data.reviews} />
     </>
   );
 }
