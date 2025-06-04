@@ -62,7 +62,9 @@ export const customBlockComponents = {
   },
   list: {
     bullet: ({ children }: { children: string }) => (
-      <ul className="pl-4 list-disc list-inside">{children}</ul>
+      <ul className="pl-4 list-disc list-inside flex flex-col gap-4">
+        {children}
+      </ul>
     ),
     number: ({ children }: { children: string }) => (
       <ol className="pl-4 list-decimal list-inside">{children}</ol>
