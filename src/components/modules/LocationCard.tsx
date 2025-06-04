@@ -25,7 +25,7 @@ export const LocationCard = ({
       className="text-center  bg-offwhite relative top-[72.5px] mb-[30px] tablet:mb-[60px] tablet:max-w-[300px] sm:max-w-none mx-auto w-full flex items-center mobile-lg:items-stretch tablet:items-center flex-col mobile-lg:flex-row tablet:flex-col"
     >
       <div
-        className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 tablet:px-7 w-full mobile-lg:max-w-[170px] tablet:max-w-none tablet:min-h-[160px] flex flex-col justify-between`}
+        className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 w-full mobile-lg:max-w-[170px] tablet:max-w-none tablet:min-h-[145px] flex flex-col justify-between`}
       >
         <div className="flex justify-center items-center relative h-[120px] w-[120px] bg-white rounded-full mx-auto shadow-icon -mb-[15px] tablet:-mb-[60px] -top-[30px] tablet:-top-[60px]">
           {logo({
@@ -33,7 +33,7 @@ export const LocationCard = ({
             className: "h-[87px] mx-auto w-auto",
           })}
         </div>
-        <p className="tablet:text-xl font-black tracking-wider text-white uppercase">
+        <p className="tablet:text-[18px] font-black tracking-wider text-white uppercase">
           {name}
         </p>
       </div>
@@ -43,20 +43,20 @@ export const LocationCard = ({
           href={`https://www.google.com/maps/search/?api=1&query=${address.street},${address.cityStateZip}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black text-[13px] mt-4 inline-block mobile-lg:hidden tablet:inline-block cursor-pointer hover:underline"
+          className="text-black text-[13px] px-4 mt-[30px] inline-block mobile-lg:hidden tablet:inline-block cursor-pointer hover:underline"
         >
           {address.street}
           <span className="tablet:block inline-block w-1" />
           {address.cityStateZip}
         </a>
       )}
-      <div className="tablet:py-[30px] py-4 mobile-lg:py-4 flex flex-col h-full justify-center tablet:justify-between gap-4 tablet:gap- w-full">
+      <div className="tablet:py-[30px] py-4 mobile-lg:py-4 flex flex-col h-full justify-center tablet:justify-between gap-4 tablet:gap-[30px] w-full">
         {address && (
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${address.street},${address.cityStateZip}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-black text-[13px] mt-4 hidden mobile-lg:inline-block tablet:hidden cursor-pointer hover:underline"
+            className="text-black text-[13px] px-4 hidden mobile-lg:inline-block tablet:hidden cursor-pointer hover:underline"
           >
             {address.street}
             <span className="tablet:block inline-block w-1" />
@@ -64,7 +64,7 @@ export const LocationCard = ({
           </a>
         )}
         {flavorsFrom && (
-          <div className="px-[16px] tablet:max-w-none mx-auto">
+          <div className="px-[16px] text-[16px] mobile-lg:text-xs tablet:text-[16px] tablet:max-w-none mx-auto">
             <p className={`${textTheme(slug)} uppercase font-bold`}>
               Flavors from:
             </p>

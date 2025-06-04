@@ -44,22 +44,15 @@ export const Header = ({
 
   return (
     <header className="bg-white relative z-20">
-      <div className="max-w-[1370px] mx-auto relative flex justify-between items-center px-4">
+      <div className="max-w-[1370px] py-[32px] mx-auto relative flex justify-between items-center px-4">
         <div className="flex items-center justify-start gap-8">
           <Link
             href="/"
             title="Pangea"
-            className="bg-pangea h-[101px] w-[104px] flex items-center justify-center"
+            className="block cursor-pointer uppercase tracking-widest font-[900] text-pangea text-[24px]"
           >
-            {logo({
-              slug: "pangea-kitchen",
-              color: "#fff",
-              className: "h-[74px] w-auto",
-            })}
-          </Link>
-          <span className="hidden tablet-md:block uppercase tracking-widest font-[900] text-pangea text-[24px]">
             {tagline}
-          </span>
+          </Link>
         </div>
         <Button
           text="Locations"

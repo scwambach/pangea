@@ -20,7 +20,7 @@ export const MapSelector = ({
   return (
     <section className="mapSelector bg-black text-white">
       <div className="relative overflow-hidden min-h-[196px] flex flex-col justify-center tablet-md:min-h-[744px] tablet-md:max-w-[1440px] mx-auto">
-        <div className="mapNav px-4 flex flex-col gap-8 pt-[50px] pb-[50px] tablet-md:pb-[100px] tablet-md:pl-[50px] tablet-md:max-w-[506px] relative z-10">
+        <div className="mapNav px-4 flex flex-col gap-8 pt-[50px] pb-[50px] tablet-md:pb-[100px] tablet-md:pl-[50px] tablet-md:max-w-[420px] relative z-10">
           <h1 className="text-[32px] tablet-md:max-w-[306px] text-pretty text-center tablet-md:text-left leading-[1.3]">
             {heading}
           </h1>

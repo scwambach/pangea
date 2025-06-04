@@ -4,7 +4,7 @@ import napoli from "@/images/napoli.jpg";
 export const bgTheme = (slug: string) => {
   return slug === "pangea-kitchen"
     ? "bg-pangea"
-    : slug === "pangea-pizzeria-downtown"
+    : slug === "pizzeria-downtown"
       ? "bg-pizzaria"
       : slug === "2nd-language"
         ? "bg-wheat"
@@ -16,7 +16,7 @@ export const bgTheme = (slug: string) => {
 export const decorationTheme = (slug: string) => {
   return slug === "pangea-kitchen"
     ? "decoration-pangea"
-    : slug === "pangea-pizzeria-downtown"
+    : slug === "pizzeria-downtown"
       ? "decoration-pizzaria"
       : slug === "2nd-language"
         ? "decoration-wheat"
@@ -28,7 +28,7 @@ export const decorationTheme = (slug: string) => {
 export const textTheme = (slug: string) => {
   return slug === "pangea-kitchen"
     ? "text-pangea"
-    : slug === "pangea-pizzeria-downtown"
+    : slug === "pizzeria-downtown"
       ? "text-pizzaria"
       : slug === "2nd-language"
         ? "text-wheat"
@@ -50,7 +50,7 @@ export const logo = ({
 }) => {
   return slug === "pangea-kitchen" ? (
     <PangeaLogo color={color} className={className} style={style} />
-  ) : slug === "pangea-pizzeria-downtown" ? (
+  ) : slug === "pizzeria-downtown" ? (
     <PangeaLogo color={color} className={className} style={style} />
   ) : slug === "2nd-language" ? (
     <LangLogo color={color} className={className} style={style} />
@@ -64,7 +64,7 @@ export const logo = ({
 export const blogBgTheme = (slug: string) => {
   return slug === "pangea-kitchen"
     ? napoli
-    : slug === "pangea-pizzeria-downtown"
+    : slug === "pizzeria-downtown"
       ? napoli
       : slug === "2nd-language"
         ? napoli

@@ -18,7 +18,7 @@ export const CtaBanner = ({
         element="h4"
       />
 
-      <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[1200px] mx-auto items-center tablet-md:gap-8 justify-center">
+      <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[900px] mx-auto items-center gap-8 justify-center">
         <ImageObject
           {...image}
           className="w-full max-w-[250px] mobile-lg:max-w-[200px] tablet-md:max-w-[315px] h-auto"
