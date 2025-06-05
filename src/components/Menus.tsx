@@ -109,7 +109,7 @@ export const Menus = ({
               activeMenu?.name === item.name ? " activeMenu" : ""
             }`}
             onClick={() => {
-              if (activeMenu?.name !== item.name && item.menu) {
+              if (activeMenu?.name !== item.name) {
                 setActiveMenu(item);
               }
             }}
