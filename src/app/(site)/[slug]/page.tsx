@@ -2,7 +2,7 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { Features } from "@/components/Features";
 import { ImageGrid } from "@/components/ImageGrid";
 import { Menus } from "@/components/Menus";
-import { Newsletter } from "@/components/Newsletter";
+// import { Newsletter } from "@/components/Newsletter";
 import { RecentPosts } from "@/components/RecentPosts";
 import { RestaurantHero } from "@/components/ResaurantHero";
 import { RESTAURANT } from "@/queries/restaurant";
@@ -72,7 +72,7 @@ export default async function Page({
         <RecentPosts {...data.relatedPosts} name={data.name} />
       )}
       <CtaBanner {...data.ctaBanner} />
-      <Newsletter socials={data.socialLinks} />
+      {/* <Newsletter socials={data.socialLinks} /> */}
       <ImageGrid items={data.gallery} />
     </>
   );
