@@ -67,7 +67,7 @@ export default async function Page({
     <>
       <RestaurantHero {...data.banner} />
       <Menus {...data.menus} fullMenu={data.fullMenu} />
-      <Features {...data.featuresBanner} />
+      {data.featuresBanner.copy && <Features {...data.featuresBanner} />}
       {data.relatedPosts.items.length > 0 && (
         <RecentPosts {...data.relatedPosts} name={data.name} />
       )}
