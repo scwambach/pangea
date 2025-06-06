@@ -29,7 +29,7 @@ export const MapSelector = ({
               <span
                 key={item._id}
                 onMouseOver={() => setActiveLocation(item)}
-                className={`item cursor-help flex items-center font-extrabold tracking-wide uppercase text-lg relative z-10 justify-start gap-8 border-b-[1px] pb-8 border-tan${activeLocation.slug === item.slug ? " active" : ""}`}
+                className={`item flex items-center font-extrabold tracking-wide uppercase text-lg relative z-10 justify-start gap-8 border-b-[1px] pb-8 border-tan${activeLocation.slug === item.slug ? " active" : ""}`}
               >
                 {logo({
                   slug: item.slug,
