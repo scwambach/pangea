@@ -46,6 +46,7 @@ export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] 
       ${richTextProps}
     },
     "email": *[_type == "globalSettings"][0].mainEmail,
+    "buttons": featuresBanner.buttons
   },
   "ctaBanner": *[_type == "homePage"][0].ctaBanner {
     ...,

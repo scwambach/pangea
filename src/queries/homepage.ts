@@ -37,6 +37,7 @@ export const HOME = `{
     address,
     orderOnlineLink
   },
+  "introGallery": *[_type == "homePage"][0].introImageGallery[] ${imageQuery},
   "gallery": *[_type == "homePage"][0].imageGallery[] ${imageQuery},
   "reviews": *[_type == "homePage"][0].reviews {
     ...,

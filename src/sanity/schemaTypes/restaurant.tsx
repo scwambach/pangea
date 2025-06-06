@@ -367,6 +367,7 @@ export const restaurant = defineType({
                   validation: (Rule: any) =>
                     Rule.required().uri({
                       allowRelative: true,
+                      scheme: ["http", "https", "mailto"],
                     }),
                 }),
               ],

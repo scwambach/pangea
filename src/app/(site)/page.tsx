@@ -24,6 +24,7 @@ export default async function Home() {
   return (
     <>
       <MapSelector {...data.mapSelector} />
+      <ImageGrid items={data.introGallery} />
       <RestaurantGrid items={data.restaurantGrid} />
       <MediaCardRow items={data.mediaCardRow} />
       <CtaBanner {...data.ctaBanner} />

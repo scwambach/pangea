@@ -4,7 +4,7 @@ import { SectionHeading } from "./modules/SectionHeading";
 
 export const Reviews = ({ heading, reviews }: ReviewsProps) => {
   return (
-    <section className="text-center px-4 py-[100px]">
+    <section className="text-center px-4 pb-[50px] tablet:pb-[100px] pt-[100px]">
       {heading && (
         <SectionHeading
           title={heading}

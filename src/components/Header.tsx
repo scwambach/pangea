@@ -49,7 +49,7 @@ export const Header = ({
           <Link
             href="/"
             title="Pangea"
-            className="block cursor-pointer uppercase tracking-widest font-[900] text-pangea text-[24px]"
+            className="text-pretty block cursor-pointer uppercase tracking-widest font-[900] text-pangea mobile-lg:text-[24px]"
           >
             {tagline}
           </Link>
@@ -67,7 +67,7 @@ export const Header = ({
             }
             setOpen(!open);
           }}
-          className="px-6"
+          className="px-4 mobile-lg:px-6 text-[12px] mobile-lg:text-[16px]"
         />
         <nav
           className={`fixed tablet-md:absolute top-0 tablet-md:top-full w-full tablet-md:w-auto right-0 tablet-md:right-4 h-full tablet-md:h-auto flex flex-col text-black px-8 pb-8 transition-all duration-500 ease-in-out overflow-hidden bg-offwhite-translucent ${

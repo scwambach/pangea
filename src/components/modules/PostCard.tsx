@@ -32,7 +32,7 @@ export const PostCard = ({
       key={_id}
       className="flex flex-col gap-10 items-center opacity-100 hover:opacity-80 transition-all duration-300"
     >
-      <div className="relative h-[354px] w-full ">
+      <div className="relative h-[200px] tablet-md:h-[354px] w-full ">
         <ImageObject
           {...image}
           className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none z-0"
@@ -48,10 +48,10 @@ export const PostCard = ({
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center">
-        <p className="text-pangea text-center uppercase font-black tracking-widest text-[22px]">
+        <p className="text-pangea text-center uppercase font-black tracking-widest tablet-md:text-[22px]">
           {title}
         </p>
-        <p className=" text-pretty leading-[1.3] line-clamp-2 max-w-[400px]">
+        <p className="hidden text-pretty leading-[1.3] tablet-md:line-clamp-2 max-w-[400px]">
           {description}
         </p>
         <p className={`${buttonClasses} mt-2 px-8 bg-black`}>Read more</p>

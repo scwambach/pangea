@@ -91,9 +91,7 @@ export const Menus = ({
   fullMenu?: string;
   items: SingleMenuProps[];
 }) => {
-  const [activeMenu, setActiveMenu] = useState<SingleMenuProps | undefined>(
-    items && items[0] && items[0].menu ? items[0] : undefined
-  );
+  const [activeMenu, setActiveMenu] = useState<SingleMenuProps | undefined>();
   return (
     <section className="flex flex-col gap-8 py-[100px] px-4 tablet-md:px-8">
       <SectionHeading

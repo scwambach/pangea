@@ -14,6 +14,20 @@ export const homePage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "introImageGallery",
+      title: "Intro Image Gallery",
+      type: "array",
+      validation: (Rule: any) => Rule.required().min(4).max(4),
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "locationGrid",
       title: "Location Grid",
       type: "object",

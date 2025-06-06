@@ -8,7 +8,7 @@ export const Features = ({
   backgroundImage,
   copy,
   slug,
-  email,
+  buttons,
 }: FeatureBannerProps) => {
   const headingClasses =
     "text-pretty text-[35px] tablet-md:text-[45px] leading-[1.2]";
@@ -69,12 +69,15 @@ export const Features = ({
                 } as any
               }
             />
-            <ButtonLink
-              color="bg-black"
-              className="px-8"
-              text="Email for more info"
-              href={`mailto:${email}`}
-            />
+            {buttons?.map((button) => (
+              <ButtonLink
+                key={button._key}
+                color="bg-black"
+                className="px-8"
+                text={button.text}
+                href={button.href}
+              />
+            ))}
           </div>
         </div>
       </div>

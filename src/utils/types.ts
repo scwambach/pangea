@@ -127,6 +127,7 @@ export interface HomePageProps {
     address?: Address;
     slug: string;
   }[];
+  introGallery: CustomImageProps[];
   gallery: CustomImageProps[];
   reviews: ReviewsProps;
 }
@@ -167,6 +168,11 @@ export type FeatureBannerProps = {
   copy: any[];
   slug: string;
   email: string;
+  buttons?: {
+    _key: string;
+    text: string;
+    href: string;
+  }[];
 };
 
 export type MenuItemProps = {

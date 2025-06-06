@@ -14,7 +14,7 @@ export const Connect = ({
   socials: (string | null)[];
 }) => {
   return (
-    <div className="tablet-lg:hidden bg-white flex flex-col gap-8 items-center justify-center px-4 py-8">
+    <div className="tablet-lg:hidden bg-white flex flex-col gap-8 items-center justify-center px-4 pb-16 pt-8">
       <p className="uppercase text-center text-pangea font-extrabold tracking-wider text-[18px]">
         Connect With Us
       </p>
