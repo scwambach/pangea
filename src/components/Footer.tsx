@@ -134,7 +134,9 @@ export const Footer = ({
         <FooterColumn className="hidden tablet-lg:flex">
           <FooterBlock heading="Careers ">
             <Link
-              href="/careers"
+              href="https://forms.gle/xfjckJN7kVxi11rz5"
+              target="_blank"
+              rel="noopener noreferrer"
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
               Apply Now
