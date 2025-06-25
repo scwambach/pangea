@@ -35,6 +35,7 @@ export async function generateMetadata({
 
   return {
     title: `${data.name} | Pangea`,
+    description: data.description,
     openGraph: {
       images: `${urlFor(data.banner.backgroundImage.imageFor).width(600)}`,
     },

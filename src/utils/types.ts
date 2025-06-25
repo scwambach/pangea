@@ -203,6 +203,7 @@ export type SingleMenuProps = {
 
 export type RestaurantProps = {
   name: string;
+  description: string;
   isActive?: boolean;
   externalUrl?: string;
   banner: {

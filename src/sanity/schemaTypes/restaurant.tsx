@@ -18,6 +18,13 @@ export const restaurant = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+      rows: 3,
+      validation: (Rule) => Rule.required().min(10).max(200),
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",

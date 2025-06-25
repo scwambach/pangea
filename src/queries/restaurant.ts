@@ -2,6 +2,7 @@ import { imageQuery, richTextProps } from "./common";
 
 export const RESTAURANT = `*[_type == "restaurant" && slug.current == $slug][0] {
   name,
+  description,
   isActive,
   externalUrl,
   "banner": {
