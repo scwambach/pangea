@@ -26,7 +26,7 @@ export const LocationCard = ({
       className="text-center  bg-offwhite relative top-[72.5px] mb-[30px] tablet:mb-[60px] tablet:max-w-[300px] sm:max-w-none mx-auto w-full flex items-center mobile-lg:items-stretch tablet:items-center flex-col mobile-lg:flex-row tablet:flex-col"
     >
       <Link
-        href={isActive ? `${slug}#menu` : externalUrl || "#"}
+        href={isActive ? slug : externalUrl || "#"}
         className={`${bgTheme(slug)} pb-4 tablet:pb-7 px-4 w-full mobile-lg:max-w-[170px] tablet:max-w-none tablet:min-h-[145px] flex flex-col justify-between`}
       >
         <div className="flex justify-center items-center relative h-[120px] w-[120px] bg-white rounded-full mx-auto shadow-icon -mb-[15px] tablet:-mb-[60px] -top-[30px] tablet:-top-[60px]">
