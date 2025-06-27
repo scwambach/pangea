@@ -11,6 +11,8 @@ import { RestaurantProps } from "@/utils/types";
 import { urlFor } from "@/utils/urlFor";
 import { notFound } from "next/navigation";
 
+export const revalidate = 3600;
+
 export async function generateMetadata({
   params,
 }: {

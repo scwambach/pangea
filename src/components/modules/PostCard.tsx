@@ -34,6 +34,7 @@ export const PostCard = ({
     >
       <div className="relative h-[200px] tablet-md:h-[354px] w-full ">
         <ImageObject
+          imageWidth={568}
           {...image}
           className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none z-0"
         />

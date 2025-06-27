@@ -23,6 +23,7 @@ export const RecentPosts = ({
         className="absolute top-0 left-0 w-full h-full object-cover -z-10 select-none pointer-events-none"
         placeholder="blur"
         blurDataURL={blogBgTheme(slug).blurDataURL}
+        unoptimized
       />
       <div className="max-w-[1200px] mx-auto">
         <SectionHeading

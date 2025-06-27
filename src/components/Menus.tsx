@@ -75,7 +75,11 @@ const MenuItem = (item: MenuItemProps) => {
       </div>
       {item.image && openImage && (
         <div className="max-w-[600px]">
-          <ImageObject {...item.image} className="w-full h-auto" />
+          <ImageObject
+            imageWidth={600}
+            {...item.image}
+            className="w-full h-auto"
+          />
         </div>
       )}
     </div>

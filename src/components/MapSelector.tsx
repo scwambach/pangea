@@ -44,6 +44,7 @@ export const MapSelector = ({
         <ImageObject
           {...activeLocation.mapImage}
           alt={`${activeLocation.name} Map`}
+          imageWidth={1200}
           className="hidden tablet-md:block absolute w-[1175px] top-1/2 object-cover -translate-y-1/2 right-0 h-[591px] pointer-events-none select-none"
         />
         <Image

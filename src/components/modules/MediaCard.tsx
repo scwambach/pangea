@@ -47,6 +47,7 @@ export const MediaCard = ({
         <ImageObject
           {...image}
           alt={title}
+          imageWidth={350}
           className="absolute top-0 left-0 w-full h-full object-cover  select-none pointer-events-none"
         />
       </div>

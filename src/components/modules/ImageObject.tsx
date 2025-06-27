@@ -29,7 +29,11 @@ export const ImageObject = (props: CustomImageProps) => {
   }
   return (
     <Image
-      src={urlFor(props.imageFor).url()}
+      src={
+        props.imageWidth
+          ? urlFor(props.imageFor).width(props.imageWidth).url()
+          : urlFor(props.imageFor).url()
+      }
       width={
         props.imageFor.crop
           ? getCroppedDimensions(
@@ -52,6 +56,7 @@ export const ImageObject = (props: CustomImageProps) => {
       alt={props.alt || ""}
       placeholder="blur"
       className={props.className}
+      unoptimized
     />
   );
 };

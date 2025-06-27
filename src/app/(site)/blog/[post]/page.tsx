@@ -10,6 +10,8 @@ import { PortableText } from "next-sanity";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export const revalidate = 3600;
+
 export async function generateMetadata({
   params,
 }: {
@@ -96,6 +98,7 @@ export default async function BlogPost({
               })}
             </div>
             <ImageObject
+              imageWidth={850}
               {...data.mainImage}
               className="w-full h-[400px] object-cover absolute top-0 left-0 "
             />

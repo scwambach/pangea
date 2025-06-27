@@ -26,6 +26,7 @@ export const RestaurantHero = ({
       {backgroundImage && (
         <ImageObject
           {...backgroundImage}
+          imageWidth={1200}
           className="absolute
         top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
         />

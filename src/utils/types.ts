@@ -5,6 +5,7 @@ export interface CustomImageProps {
   src: string;
   width: number;
   height: number;
+  imageWidth?: number;
   blurDataURL?: string;
   alt?: string;
   imageFor: {

@@ -19,6 +19,7 @@ export const Features = ({
     <section className="relative">
       {backgroundImage && (
         <ImageObject
+          imageWidth={1200}
           {...backgroundImage}
           className="absolute
               top-0 left-0 w-full h-full object-cover select-none pointer-events-none"

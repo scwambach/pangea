@@ -4,7 +4,7 @@ import { ImageObject } from "@/components/modules/ImageObject";
 export const customBlockComponents = {
   types: {
     image: ({ value }: { value: any }) => {
-      return <ImageObject {...value} alt="" />;
+      return <ImageObject imageWidth={675} {...value} alt="" />;
     },
   },
   block: {

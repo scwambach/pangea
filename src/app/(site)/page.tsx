@@ -8,6 +8,8 @@ import { getLiveData } from "@/utils/pageData";
 import { HomePageProps } from "@/utils/types";
 import { Reviews } from "@/components/Reviews";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const {
     data,

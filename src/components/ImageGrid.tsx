@@ -10,6 +10,7 @@ export const ImageGrid = ({ items }: { items: CustomImageProps[] }) => {
             <div className="relative top-1/2 left-0 -translate-y-1/2 pb-[100%]">
               <ImageObject
                 {...image}
+                imageWidth={400}
                 className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
               />
             </div>

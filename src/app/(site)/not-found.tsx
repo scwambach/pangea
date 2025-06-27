@@ -3,6 +3,8 @@ export const metadata = {
   description: "Page not found.",
 };
 
+export const dynamic = "force-static";
+
 export default async function FourOhFour() {
   return (
     <>

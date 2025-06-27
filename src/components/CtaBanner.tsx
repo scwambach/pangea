@@ -21,6 +21,7 @@ export const CtaBanner = ({
       <div className="flex flex-col mobile-lg:flex-row mobile-lg:max-w-[900px] mx-auto items-center gap-8 justify-center">
         <ImageObject
           {...image}
+          imageWidth={350}
           className="w-full max-w-[250px] mobile-lg:max-w-[200px] tablet-md:max-w-[315px] h-auto"
           alt=""
         />
