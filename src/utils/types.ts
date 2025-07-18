@@ -159,6 +159,11 @@ export type HoursProps = {
 export type FooterProps = {
   email: string;
   phone: string;
+  phoneNumbers: {
+    _key: string;
+    label?: string;
+    number: string;
+  }[];
   addresses: AddressProps[];
   hours: HoursProps[];
   socials: (string | null)[];

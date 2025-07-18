@@ -1,3 +1,4 @@
+import { MdPhoneIphone } from "react-icons/md";
 import { defineField, defineType } from "sanity";
 
 export const globalSettings = defineType({
@@ -59,6 +60,43 @@ export const globalSettings = defineType({
       fieldset: "global",
       type: "string",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "phoneNumbers",
+      title: "Phone Numbers",
+      fieldset: "global",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "label",
+              title: "Label",
+              type: "string",
+            }),
+            defineField({
+              name: "number",
+              title: "Number",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: {
+              title: "label",
+              subtitle: "number",
+            },
+            prepare({ title, subtitle }: any) {
+              return {
+                title: title ? title : subtitle,
+                subtitle: title ? subtitle : undefined,
+                media: MdPhoneIphone,
+              };
+            },
+          },
+        },
+      ],
     }),
     defineField({
       name: "siteLogo",

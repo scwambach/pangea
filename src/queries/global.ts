@@ -21,6 +21,7 @@ export const GLOBAL = `*[_type == "globalSettings"][0] {
   "footer": {
     "email": mainEmail,
     "phone": mainPhone,
+    phoneNumbers,
     "socials": *[_type == "homePage"][0].locationGrid.locations[] -> socialLinks[],
     "addresses": *[_type == "homePage"][0].locationGrid.locations[] -> {
       "_key": _id,

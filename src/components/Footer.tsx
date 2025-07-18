@@ -12,6 +12,7 @@ export const Footer = ({
   email,
   hours,
   phone,
+  phoneNumbers,
   socials,
 }: FooterProps) => {
   return (
@@ -80,6 +81,21 @@ export const Footer = ({
                 {phone}
               </a>
             </div>
+            {phoneNumbers?.map((number) => (
+              <div key={number._key}>
+                {number.label && (
+                  <p className="block uppercase font-semibold text-sm text-pangea-dark">
+                    {number.label}
+                  </p>
+                )}
+                <a
+                  href={`tel:${number.number}`}
+                  className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
+                >
+                  {number.number}
+                </a>
+              </div>
+            ))}
           </FooterBlock>
         </FooterColumn>
         <FooterColumn>
