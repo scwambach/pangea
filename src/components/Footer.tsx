@@ -17,7 +17,12 @@ export const Footer = ({
 }: FooterProps) => {
   return (
     <footer className="tablet-lg:py-[100px]">
-      <Connect email={email} phone={phone} socials={socials} />
+      <Connect
+        email={email}
+        phone={phone}
+        socials={socials}
+        phoneNumbers={phoneNumbers}
+      />
       <div className="max-w-[1200px] mx-auto p-10 tablet-lg:py-0 tablet-lg:px-8 grid mobile-md:grid-cols-2 tablet-lg:grid-cols-4 gap-8 text-white tablet-lg:text-inherit  bg-pizzaria-dark tablet-lg:bg-white">
         <FooterColumn className="hidden tablet-lg:flex">
           <FooterBlock heading="Connect With Us">

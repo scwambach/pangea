@@ -7,10 +7,16 @@ import { FooterBlock } from "./FooterBlock";
 export const Connect = ({
   email,
   phone,
+  phoneNumbers,
   socials,
 }: {
   email: string;
   phone: string;
+  phoneNumbers: {
+    _key: string;
+    label?: string;
+    number: string;
+  }[];
   socials: (string | null)[];
 }) => {
   return (
@@ -81,6 +87,21 @@ export const Connect = ({
               >
                 {phone}
               </a>
+              {phoneNumbers?.map((number) => (
+                <div key={number._key} className="mt-3">
+                  {number.label && (
+                    <p className="block uppercase font-semibold text-sm text-pangea-dark">
+                      {number.label}
+                    </p>
+                  )}
+                  <a
+                    href={`tel:${number.number}`}
+                    className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
+                  >
+                    {number.number}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
