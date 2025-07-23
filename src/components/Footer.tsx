@@ -145,10 +145,20 @@ export const Footer = ({
           </FooterBlock>
           <FooterBlock heading="Careers" className="tablet-lg:hidden">
             <Link
-              href="/careers"
+              href="https://forms.gle/xfjckJN7kVxi11rz5"
+              target="_blank"
+              rel="noopener noreferrer"
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
               Apply Now
+            </Link>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSebjV8yF4qCM_ojlzmOVCJDui1cuxQ185cO-wlvSsfA9UUJEA/viewform?usp=header"
+              className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
+            >
+              Pangea Cares
             </Link>
           </FooterBlock>
         </FooterColumn>
@@ -161,6 +171,14 @@ export const Footer = ({
               className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
             >
               Apply Now
+            </Link>
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSebjV8yF4qCM_ojlzmOVCJDui1cuxQ185cO-wlvSsfA9UUJEA/viewform?usp=header"
+              className="tablet-lg:text-black block tablet-lg:hover:text-pangea-dark transition-colors"
+            >
+              Pangea Cares
             </Link>
           </FooterBlock>
         </FooterColumn>
