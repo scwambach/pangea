@@ -113,26 +113,26 @@ export default async function BlogPost({
             {data.previousPost ? (
               <Link
                 href={`/blog/${data.previousPost?.slug}`}
-                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2"
+                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2 max-w-[300px] min-w-[200px]"
               >
                 <ArrowRight
                   className="w-[25px] tablet:w-auto h-auto rotate-180 -translate-y-[1px]"
                   color="var(--color-pangea"
                 />
-                <span className="leading-[1] hidden tablet:block">
+                <span className="leading-[1.2] w-[calc(100%-35px)] hidden tablet:block">
                   {data.previousPost?.title}
                 </span>
               </Link>
             ) : (
               <Link
                 href="/blog"
-                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2"
+                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2 max-w-[300px] min-w-[200px]"
               >
                 <ArrowRight
                   className="w-[25px] tablet:w-auto h-auto rotate-180 -translate-y-[1px]"
                   color="var(--color-pangea"
                 />
-                <span className="leading-[1] hidden tablet:block">
+                <span className="leading-[1.2] w-[calc(100%-35px)] hidden tablet:block">
                   Back to Blog
                 </span>
               </Link>
@@ -140,9 +140,9 @@ export default async function BlogPost({
             {data.nextPost ? (
               <Link
                 href={`/blog/${data.nextPost?.slug}`}
-                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2"
+                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2 max-w-[300px] min-w-[200px]"
               >
-                <span className="leading-[1] hidden tablet:block text-right">
+                <span className="leading-[1.2] w-[calc(100%-35px)] hidden tablet:block text-right">
                   {data.nextPost?.title}
                 </span>
                 <ArrowRight
@@ -153,9 +153,9 @@ export default async function BlogPost({
             ) : (
               <Link
                 href="/blog"
-                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2"
+                className="uppercase tracking-wide hover:text-paprika transition-all ease-in-out flex items-center gap-2 max-w-[300px] min-w-[200px]"
               >
-                <span className="leading-[1] hidden tablet:block text-right">
+                <span className="leading-[1.2] w-[calc(100%-35px)] hidden tablet:block text-right">
                   Back to Blog
                 </span>
                 <ArrowRight
