@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { urlFor } from "@/utils/urlFor";
 import { DisableDraftMode } from "@/components/DisableDraftMode";
-import { VisualEditing } from "next-sanity";
+import { VisualEditingClient } from "@/components/VisualEditingClient";
 import { draftMode } from "next/headers";
 import { SanityLive } from "@/sanity/lib/live";
 import { PopUpCta } from "@/components/PopUpCta";
@@ -70,7 +70,7 @@ export default async function RootLayout({
         {(await draftMode()).isEnabled && (
           <>
             <DisableDraftMode />
-            <VisualEditing />
+            <VisualEditingClient />
           </>
         )}
       </body>
