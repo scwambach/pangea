@@ -14,7 +14,6 @@
     "@sanity/vision": "^5.9.0",
     "@sanity/visual-editing": "^5.2.1",
     "dayjs": "^1.11.19",
-    "lightningcss": "^1.29.0",
     "next": "16.1.6",
     "next-sanity": "^12.1.0",
     "react": "19.2.4",
@@ -32,13 +31,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
     "eslint": "^10",
     "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }
