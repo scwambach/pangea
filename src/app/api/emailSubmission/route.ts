@@ -4,25 +4,16 @@ export async function POST(request: NextRequest) {
   const formData = await request.json();
   const { email } = formData;
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
-  const success = Math.random() > 0.5;
+  // TODO: Implement actual email service integration (e.g., SendGrid, Mailchimp, etc.)
+  // For now, just log and return success
 
   console.log({
     email,
-    success,
+    timestamp: new Date().toISOString(),
   });
 
-  if (success) {
-    console.log("it worked");
-    return NextResponse.json(
-      { message: `${email} has been saved.` },
-      { status: 200 }
-    );
-  }
-
   return NextResponse.json(
-    { message: "Something went wrong. Please try again." },
-    { status: 500 }
+    { message: `${email} has been saved.` },
+    { status: 200 },
   );
 }

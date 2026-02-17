@@ -4,7 +4,7 @@ import { BLOGROLL } from "@/queries/blog";
 import { getLiveData } from "@/utils/pageData";
 import { CustomImageProps } from "@/utils/types";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
 
 export const metadata = {
   title: "Blog | Pangea",

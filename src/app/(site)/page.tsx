@@ -8,7 +8,7 @@ import { getLiveData } from "@/utils/pageData";
 import { HomePageProps } from "@/utils/types";
 import { Reviews } from "@/components/Reviews";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
 
 export default async function Home() {
   const {

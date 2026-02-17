@@ -10,8 +10,18 @@ import { getLiveData } from "@/utils/pageData";
 import { RestaurantProps } from "@/utils/types";
 import { urlFor } from "@/utils/urlFor";
 import { notFound } from "next/navigation";
+import { client } from "@/sanity/lib/client";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
+
+export async function generateStaticParams() {
+  const restaurants = await client.fetch<{ slug: string }[]>(
+    `*[_type == "restaurant" && isActive == true]{ "slug": slug.current }`,
+  );
+  return restaurants.map((restaurant) => ({
+    slug: restaurant.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,

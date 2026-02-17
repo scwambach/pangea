@@ -9,8 +9,18 @@ import { urlFor } from "@/utils/urlFor";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { client } from "@/sanity/lib/client";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
+
+export async function generateStaticParams() {
+  const posts = await client.fetch<{ slug: string }[]>(
+    `*[_type == "post"]{ "slug": slug.current }`,
+  );
+  return posts.map((post) => ({
+    post: post.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
