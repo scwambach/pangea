@@ -61,7 +61,7 @@ export const Header = ({
             if (open) {
               document.body.style.overflow = "auto";
             } else {
-              if (window.innerWidth <= 768) {
+              if (typeof window !== "undefined" && window.innerWidth <= 768) {
                 document.body.style.overflow = "hidden";
               }
             }
