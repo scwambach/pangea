@@ -21,9 +21,7 @@ export default async function Blog({
   const itemsPerPage = 8;
   const start = (currentPage - 1) * itemsPerPage;
 
-  const {
-    data,
-  } = await getLiveData<{
+  const { data } = await getLiveData<{
     posts: {
       _id: string;
       title: string;

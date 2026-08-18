@@ -11,9 +11,7 @@ import { Reviews } from "@/components/Reviews";
 export const revalidate = 86400; // 24 hours
 
 export default async function Home() {
-  const {
-    data,
-  } = await getLiveData<HomePageProps>({
+  const { data } = await getLiveData<HomePageProps>({
     query: HOME,
     params: {
       slug: "/",

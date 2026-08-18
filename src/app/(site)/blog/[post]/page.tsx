@@ -28,9 +28,7 @@ export async function generateMetadata({
   params: Promise<{ post: string }>;
 }) {
   const { post } = await params;
-  const {
-    data,
-  } = await getLiveData<PostProps>({
+  const { data } = await getLiveData<PostProps>({
     query: POST,
     params: {
       post,
@@ -57,9 +55,7 @@ export default async function BlogPost({
   params: Promise<{ post: string }>;
 }) {
   const { post } = await params;
-  const {
-    data,
-  } = await getLiveData<PostProps>({
+  const { data } = await getLiveData<PostProps>({
     query: POST,
     params: {
       post,
