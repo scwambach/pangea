@@ -23,24 +23,22 @@ export default async function Blog({
 
   const {
     data,
-  }: {
-    data: {
-      posts: {
+  } = await getLiveData<{
+    posts: {
+      _id: string;
+      title: string;
+      slug: string;
+      description: string;
+      image: CustomImageProps;
+      attachedLocation: string;
+      categories: {
         _id: string;
         title: string;
         slug: string;
-        description: string;
-        image: CustomImageProps;
-        attachedLocation: string;
-        categories: {
-          _id: string;
-          title: string;
-          slug: string;
-        }[];
       }[];
-      totalPostCount: number;
-    };
-  } = await getLiveData({
+    }[];
+    totalPostCount: number;
+  }>({
     query: BLOGROLL,
     params: {
       start,

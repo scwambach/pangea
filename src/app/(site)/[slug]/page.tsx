@@ -31,9 +31,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const {
     data,
-  }: {
-    data: RestaurantProps;
-  } = await getLiveData({
+  } = await getLiveData<RestaurantProps>({
     query: RESTAURANT,
     params: {
       slug,
@@ -62,9 +60,7 @@ export default async function Page({
   const { slug } = await params;
   const {
     data,
-  }: {
-    data: RestaurantProps;
-  } = await getLiveData({
+  } = await getLiveData<RestaurantProps>({
     query: RESTAURANT,
     params: {
       slug,

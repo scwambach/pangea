@@ -21,11 +21,11 @@ export const ButtonLink = ({
     | "bg-wheat"
     | "bg-pangea";
 }) => {
-  const isExternalLink = href.startsWith("http");
+  const isExternalLink = href?.startsWith("http") || false;
 
   return (
     <Link
-      href={href}
+      href={href || "#"}
       target={isExternalLink ? "_blank" : undefined}
       rel={isExternalLink ? "noopener noreferrer" : undefined}
       className={`${color} ${buttonClasses}${className ? ` ${className}` : ""}`}

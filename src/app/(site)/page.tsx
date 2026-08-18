@@ -13,9 +13,7 @@ export const revalidate = 86400; // 24 hours
 export default async function Home() {
   const {
     data,
-  }: {
-    data: HomePageProps;
-  } = await getLiveData({
+  } = await getLiveData<HomePageProps>({
     query: HOME,
     params: {
       slug: "/",

@@ -17,17 +17,17 @@ export async function getData({
   };
 }
 
-export async function getLiveData({
+export async function getLiveData<T = unknown>({
   query,
   params,
 }: {
   query: string;
   usePreview: boolean;
   params?: any;
-}) {
-  const { data } = await sanityFetch({ query, params });
+}): Promise<{ data: T }> {
+  const result = await sanityFetch({ query, params });
 
   return {
-    data,
+    data: result.data as T,
   };
 }

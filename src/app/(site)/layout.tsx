@@ -21,9 +21,7 @@ const montSans = Montserrat({
 export async function generateMetadata() {
   const {
     data,
-  }: {
-    data: GlobalProps;
-  } = await getLiveData({
+  } = await getLiveData<GlobalProps>({
     query: GLOBAL,
     params: {
       slug: "/",
@@ -47,9 +45,7 @@ export default async function RootLayout({
 }>) {
   const {
     data,
-  }: {
-    data: GlobalProps;
-  } = await getLiveData({
+  } = await getLiveData<GlobalProps>({
     query: GLOBAL,
     params: {
       slug: "/",

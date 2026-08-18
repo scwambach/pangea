@@ -30,9 +30,7 @@ export async function generateMetadata({
   const { post } = await params;
   const {
     data,
-  }: {
-    data: PostProps;
-  } = await getLiveData({
+  } = await getLiveData<PostProps>({
     query: POST,
     params: {
       post,
@@ -61,9 +59,7 @@ export default async function BlogPost({
   const { post } = await params;
   const {
     data,
-  }: {
-    data: PostProps;
-  } = await getLiveData({
+  } = await getLiveData<PostProps>({
     query: POST,
     params: {
       post,
