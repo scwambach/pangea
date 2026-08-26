@@ -1,4 +1,4 @@
-import { LangLogo, PangeaLogo, SazonLogo } from "@/icons";
+import { LangLogo, PangeaLogo, SazonLogo, GlobalExchangeLogo } from "@/icons";
 import napoli from "@/images/napoli.jpg";
 
 export const bgTheme = (slug: string) => {
@@ -50,8 +50,8 @@ export const logo = ({
 }) => {
   return slug === "pangea-kitchen" ? (
     <PangeaLogo color={color} className={className} style={style} />
-  ) : slug === "pizzeria-downtown" ? (
-    <PangeaLogo color={color} className={className} style={style} />
+  ) : slug === "global-exchange" ? (
+    <GlobalExchangeLogo color={color} className={className} style={style} />
   ) : slug === "2nd-language" ? (
     <LangLogo color={color} className={className} style={style} />
   ) : slug === "sazon-y-fuego" ? (
