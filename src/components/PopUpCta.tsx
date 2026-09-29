@@ -2,18 +2,29 @@
 import { PopUpCtaProps } from "@/utils/types";
 import { ButtonLink } from "./modules/ButtonLink";
 import { IoMdClose } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const sessionStorageChangeEvent = "session-storage-change";
+
+function subscribeToSessionStorage(onChange: () => void) {
+  window.addEventListener(sessionStorageChangeEvent, onChange);
+  return () => window.removeEventListener(sessionStorageChangeEvent, onChange);
+}
+
+function getHasBeenClosed() {
+  return sessionStorage.getItem("closePopUp") === "true";
+}
+
+function getServerHasBeenClosed() {
+  return true;
+}
 
 export const PopUpCta = ({ heading, copy, button }: PopUpCtaProps) => {
-  const [hasBeenClosed, setHasBeenClosed] = useState(true);
-  useEffect(() => {
-    const closePopUp = sessionStorage.getItem("closePopUp");
-    if (closePopUp === "true") {
-      setHasBeenClosed(true);
-    } else {
-      setHasBeenClosed(false);
-    }
-  }, [hasBeenClosed]);
+  const hasBeenClosed = useSyncExternalStore(
+    subscribeToSessionStorage,
+    getHasBeenClosed,
+    getServerHasBeenClosed,
+  );
 
   return !hasBeenClosed ? (
     <div className="fixed bottom-4  right-4 z-[999] text-center w-[calc(100%-32px)] max-w-[320px] bg-white border-[1px] border-gray-100 shadow-lg py-8 px-4 flex flex-col items-center gap-4">
@@ -21,7 +32,7 @@ export const PopUpCta = ({ heading, copy, button }: PopUpCtaProps) => {
         className="absolute top-2 right-2 hover:opacity-50 transition-opacity duration-200 cursor-pointer"
         onClick={() => {
           sessionStorage.setItem("closePopUp", "true");
-          setHasBeenClosed(true);
+          window.dispatchEvent(new Event(sessionStorageChangeEvent));
         }}
       >
         <IoMdClose size={32} />

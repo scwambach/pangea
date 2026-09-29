@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-black: #2d291f;
@@ -23,7 +21,6 @@
   --color-pangea-translucent: rgba(169, 120, 88, 0.8);
   --color-pangea-dark: #8b6c4e;
   --shadow-icon: 0 4px 4px 4px rgba(0, 0, 0, 0.15);
-
   --breakpoint-mobile: 320px;
   --breakpoint-mobile-md: 420px;
   --breakpoint-mobile-lg: 480px;
